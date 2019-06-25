@@ -1,0 +1,8 @@
+include(
+    'companies-core',
+    'companies-queue',
+    'app',
+    'common',
+    'common-http',
+    'workflow'
+)

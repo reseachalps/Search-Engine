@@ -1,0 +1,26 @@
+<md-dialog aria-label="Proposition d’enrichissement et de correction" ng-cloak>
+    <form>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <h2>Proposal for improvement and correction</h2>
+                <h4>Présence on the web</h4>
+                <p data-layout="column">
+                    <!--{{content}}-->
+                    <md-input-container ng-repeat="website in content">
+                        <label>Web site{{$index + 1}}</label>
+                        <input ng-model="website.url" type="text">
+                    </md-input-container>
+                </p>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="cancel()">
+                Cancel
+            </md-button>
+            <md-button ng-click="answer(content)" class="md-raised md-primary">
+                Validate
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

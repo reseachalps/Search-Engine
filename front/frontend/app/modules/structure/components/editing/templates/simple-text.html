@@ -1,0 +1,46 @@
+<md-dialog aria-label="Proposition d’enrichissement et de correction" ng-cloak class="simple-dialog">
+    <form name="editingForm">
+        <md-toolbar>
+            <div class="md-toolbar-tools" data-layout="row">
+                <h2>Proposal for improvement and correction</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="fa fa-times fa-fw fa-lg"></i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="message" ng-if="status.message" ng-class="{'ok':status.code === 'ok', 'error':status.code === 'error'}">{{status.message}}</div>
+            <div class="md-dialog-content">
+                <h4>
+                    I want to propose improvement and/or correction on the section « {{label}} » pour <struct-label struct="structure.structure"></struct-label>
+                </h4>
+                <textarea name="demand" ng-model="demand" rows="5" placeholder="Write your remarks here, they will be transmit to the Re-search Alps admins" required></textarea>
+
+                <div data-layout="column">
+                    <md-input-container>
+                        <label>Your name</label>
+                        <input type="text" ng-model="userName" required>
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label>Your mail</label>
+                        <input type="email" ng-model="email" required>
+                    </md-input-container>
+                </div>
+                <div data-layout="row" data-layout-align="start" class="captcha-container">
+                    <div vc-recaptcha key="'6LfT23gUAAAAAOc836y57MoSg5fztkhE-MMbilO2'" on-create="setRecaptchaId(widgetId)"></div> <!-- Google recaptcha -->
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="cancel()" aria-label="Cancel" ng-disabled="suggestionSent">
+                Cancel
+            </md-button>
+            <md-button ng-click="sendSuggestion()" class="md-raised md-primary btn-confirm" ng-disabled="editingForm.$invalid || suggestionSent" aria-label="Send">
+                Send <i class="fa fa-spinner fa-fw fa-spin" ng-class="{'display':loading}"></i>
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

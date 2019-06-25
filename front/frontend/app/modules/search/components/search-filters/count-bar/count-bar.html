@@ -1,0 +1,4 @@
+<span class="count-bar" ng-style="{width:Bar.count*80/Bar.maxValue + '%'}"></span>
+<small class="count-value" ng-class="{'too-big':Bar.count < 0.15*Bar.maxValue && Bar.count > 0, 'empty':Bar.count === 0}">
+    <b>{{Bar.count | number}}</b>
+</small>

@@ -1,0 +1,121 @@
+<div class="editing-wrapper" editing="Publications.allowEditing"
+        editing-id="Publications" editing-label="Publications"
+        editing-content="Publications.publicationsList" editing-row="full" structure="Publications.structure">
+    <h2 class="title-publi">
+        Publications
+    </h2>
+    <div data-layout="row" data-layout-align="start top" ng-if="Publications.publicationsList.length > 0">
+        <div flex-sm="100" flex-xs="100">
+            <md-autocomplete
+                    ng-if="Publications.publications.length > 1"
+                    md-search-text="Publications.search"
+                    md-items="item in []"
+                    md-item-text="item.display"
+                    md-min-length="0"
+                    placeholder='Search in {{Publications.publications.length | number}} publications'>
+              </md-autocomplete>
+            <div class="count" data-layout="row" data-layout-align="end center">
+                    {{Publications.filtredPublications | filterCountNoHeaders | number}} publication<span ng-if="(Publications.filtredPublications | filterCountNoHeaders) > 1">s</span>
+                    <span ng-if="(Publications.filtredPublications | filterCountNoHeaders) < Publications.publications.length">&nbsp;out of {{Publications.publications.length | number}}</span>
+            </div>
+            <md-virtual-repeat-container class="publication-vrepeat">
+                <div md-virtual-repeat="publication in Publications.filtredPublications=(Publications.publicationsList | filter:Publications.search) " layout="column" data-layout-align="center stretch">
+                    <div ng-if="publication.header" class="header">
+                        {{publication.year || 'Without year'}}
+                    </div>
+                    <div ng-if="!publication.header" class="publication" ng-click="Publications.selectPublication(publication)" ng-class="{selected: Publications.selectedPublication.id === publication.id}">
+                        <small>{{publication.type}}</small>
+                        <div>
+                            <b>{{publication.title}}</b>
+                        </div>
+                        <div data-layout="row" data-layout-align="space-between" class="publi-meta">
+                            <small>{{ (publication.publicationDate || publication.lastSourceDate) | date }}</small>
+                            <small ng-if="publication.authorsCount > 1">{{publication.authors[0].lastName}} et al. ({{ publication.authorsCount }} co-authors)</small>
+                            <small ng-if="publication.authorsCount === 1">{{publication.authors[0].firstName}} {{publication.authors[0].lastName}}</small>
+                        </div>
+                    </div>
+                </div>
+            </md-virtual-repeat-container>
+        </div>
+        <div flex class="selected-publication">
+            <div data-layout-align="space-between center" data-layout="row">
+                <h3>
+                    {{Publications.selectedPublication.title}}
+                    <i class="fa fa-info-circle">
+                        <md-tooltip md-direction="top">
+                            Source: {{ Publications.selectedPublication.sources | join:", ":"label" }}
+                        </md-tooltip>
+                    </i>
+                </h3>
+            </div>
+            <div data-layout="row" data-layout-align="end">
+                <small class="secondary">Publication date: {{(Publications.selectedPublication.publicationDate || Publications.selectedPublication.lastSourceDate) | date }}</small>
+            </div>
+            <div ng-if="Publications.selectedPublication.summary.length > 0">
+                <p ng-show="!Publications.displayFullDescription && Publications.selectedPublication.summary.length > 500" class="description">{{Publications.selectedPublication.summary.substring(0,500)}}...</p>
+                <p ng-show="Publications.displayFullDescription || Publications.selectedPublication.summary.length <= 500" class="description">{{Publications.selectedPublication.summary}}</p>
+                <p data-layout="row" data-layout-align="end" ng-click="Publications.displayFullDescription = true" ng-show="!Publications.displayFullDescription && Publications.selectedPublication.summary.length > 500" class="subtitle">
+                    See more
+                </p>
+            </div>
+            <p>
+                <small>
+                    <a ng-href="{{Publications.selectedPublication.link}}" target="_blank" ng-if="Publications.selectedPublication.link">{{Publications.selectedPublication.link}} <i class="fa fa-fw fa-external-link"></i></a>
+                </small>
+            </p>
+            <p>
+                <small>
+                    <a class="author" ng-repeat="author in Publications.selectedPublication.authors | limitTo:Publications.authorLimit" ui-sref="search({query: '&quot' + author.firstName + ' ' + author.lastName + '&quot'})">
+                        {{author.firstName}} {{author.lastName}}{{$last ? '' : ', '}}
+                    </a>
+                    <a ng-if="Publications.selectedPublication.authors.length>Publications.authorLimit" ng-click="Publications.authorLimit=Infinity"> ({{Publications.selectedPublication.authors.length-Publications.authorLimit}} more)</a>
+                    <br>
+                    <b>{{Publications.selectedPublication.title}}</b>.<br>
+                    <em>{{Publications.selectedPublication.source.asString}}</em>
+                </small>
+            </p>
+        </div>
+    </div>
+    <div class="revues" ng-if="Publications.revues.length > 0">
+        <h3>This organization has already published in :</h3>
+        <ul>
+           <li ng-repeat="revue in Publications.revues | orderBy:'name' | limitTo:Publications.revuesLimit">
+               {{revue.name}}
+           </li>
+        </ul>
+        <p ng-if="Publications.revues.length > 5" class="more-revues" ng-click="Publications.revuesLimit = Infinity" ng-show="Publications.revuesLimit !== Infinity">
+            <b><small>And {{Publications.revues.length - 5}} other<span ng-if="(Publications.revues.length - 5) > 1">s</span> journals...</small></b> <small class="grey">(Click here to display them all)</small>
+        </p>
+    </div>
+    <div ng-if="Publications.webPublicationsLength > 0" class="web-detected">
+        <h4>
+            <span ng-if="Publications.publicationsList.length === 0">
+                <ng-pluralize count="Publications.webPublicationsLength" when="{'0': '',
+                     '1': 'Publication detected',
+                     'other': 'Publications detected'}">
+                </ng-pluralize>&nbsp;
+            </span>
+            <span ng-if="Publications.publicationsList.length > 0">
+                <ng-pluralize count="Publications.webPublicationsLength" when="{'0': '',
+                     '1': 'Other publication detected',
+                     'other': 'Others publications detected'}">
+                </ng-pluralize>&nbsp;
+            </span>
+            on the web site:
+        </h4>
+        <div class="web-publi" ng-class="{scrolling: Publications.webPublicationsLength > 3}">
+            <md-virtual-repeat-container ng-style="{height: (Publications.webPublicationsLength > 3 ? 300 : Publications.webPublicationsLength*115)+'px' }">
+            <p md-virtual-repeat="webPubli in Publications.webPublications | orderBy:['!publicationDate','-publicationDate', 'title']">
+                <small>
+                    <a class="author" ui-sref="search({query: '&quot' + webPubli.authors[0].firstName + ' ' + webPubli.authors[0].lastName + '&quot'})">
+                        {{webPubli.authors[0].firstName}} {{webPubli.authors[0].lastName}}
+                    </a> and al.<br>
+                    <b>{{webPubli.title}}</b>.<br>
+                    <em>{{webPubli.source.asString}} <span ng-if="webPubli.publicationDate">, </span>{{webPubli.publicationDate | date:'yyyy'}}</em><br>
+                    <a ng-href="{{webPubli.link}}" target="_blank" ng-if="webPubli.link">{{webPubli.link}} <i class="fa fa-fw fa-external-link"></i></a>
+                </small>
+            </p>
+            </md-virtual-repeat-container>
+        </div>
+    </div>
+</div>

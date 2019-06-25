@@ -1,0 +1,44 @@
+<div data-layout="row" class="errors-container">
+    <div flex>
+        <div>
+            <span ng-show="Errors.message" class="alert alert-success">{{ Errors.message }}</span>
+            <ng-messages for="Errors.messages" role="alert">
+              <ng-message when="error">{{Errors.messages.error}}</ng-message>
+            </ng-messages>
+        </div>
+        <div>
+            <div class="page-header">
+                <h1>Error Reporting</h1>
+            </div>
+            <div ng-if="Errors.errorsCount">
+                <b>Queue&nbsp;:</b>
+                <md-input-container>
+                    <md-select ng-model="Errors.queue" ng-change="Errors.setQueue(Errors.queue)" aria-label="Queue Selector">
+                      <md-option ng-repeat="(queue,value) in Errors.errorsCount" value="{{queue}}">
+                        {{queue}} ({{Errors.errorsCount[queue]}})
+                      </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-button class="md-primary" ng-click="Errors.recoverQueue()">Recover All</md-button>
+                <md-button class="md-warn" ng-click="Errors.dismissQueue()">Dismiss All</md-button>
+            </div>
+            <div ng-if="Errors.errors && Errors.errors.length == 0" class="row">
+                No error have been reported, congratulations!
+            </div>
+        </div>
+        <div ng-repeat="error in Errors.errors" class="error">
+            <div class="error-header">
+                <md-button class="md-raised md-primary" ng-click="Errors.recover(error.id)">Recover</md-button>
+                <md-button class="md-warn" ng-click="Errors.dismiss(error.id)">Dismiss</md-button>
+                <span>{{ error.timestamp | date:'yyyy-MM-dd HH:mm:ss' }}</span> - <span><b>{{ error.queue }}</b></span>
+                <md-button ng-click="error.displayMessage = true" ng-show="!error.displayMessage">Display message</md-button>
+                <md-button ng-click="error.displayMessage = false" ng-show="error.displayMessage">Hide message</md-button>
+            </div>
+            <div ng-show="error.displayMessage"><pre>{{ error.message | json}}</pre></div>
+            <div class="stack-container" ng-click="error.displayStack = true" ng-class="{'display-full': error.displayStack}"><pre>{{ error.stackTrace }}</pre></div>
+        </div>
+        <div ng-if="Errors.loading" layout="row" data-layout-align="center" class="loading">
+            <md-progress-circular md-mode="indeterminate" md-diameter="96"></md-progress-circular>
+        </div>
+    </div>
+</div>

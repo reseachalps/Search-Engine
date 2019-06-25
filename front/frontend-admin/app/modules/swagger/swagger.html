@@ -1,0 +1,5 @@
+<div class="swagger">
+    <!-- Dirty hack to inject css in the swagger-ui -->
+    <iframe name="swagger" class="swagger" src="/api/swagger-ui.html"
+        onload='var styleNode = document.createElement("style"); styleNode.textContent = "#header, #api_info, .footer{display: none}"; top.frames["swagger"].document.body.appendChild(styleNode);'></iframe>
+</div>

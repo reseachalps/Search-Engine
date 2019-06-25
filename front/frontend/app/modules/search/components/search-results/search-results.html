@@ -1,0 +1,57 @@
+<div data-layout-padding layout="row" data-layout-align="center">
+    <div flex class="results-container">
+        <div data-layout="row" data-layout-align="space-between center">
+        </div>
+
+            <p class="results-count pull-left">
+                <b>
+                    <span ng-if="Results.searchResults.total > 0" class="count">
+
+                        <span ng-if="Results.selectedTab === 0">
+                            from {{(((Results.currentPage - 1) * Results.PAGE_SIZE) + 1) | number}} to&nbsp;
+                            <span ng-if="Results.currentPage * Results.PAGE_SIZE <= Results.searchResults.total">{{(Results.currentPage * Results.PAGE_SIZE) | number}}</span>
+                            <span ng-if="Results.currentPage * Results.PAGE_SIZE > Results.searchResults.total">{{Results.searchResults.total | number}}</span>
+                            &nbsp;out of
+                        </span>&nbsp;{{Results.searchResults.total | number}}
+                    </span>
+                    <ng-pluralize count="Results.searchResults.total" when="{'0': 'No results',
+                             '1': ' result',
+                             'other': ' results'}">
+                    </ng-pluralize>
+                    <span ng-if="Results.selectedTab === 0 && Results.searchResults.total > 0">
+                        &nbsp;- Page&nbsp;<span class="count">{{Results.currentPage}} out of {{Results.maxPage | number}}</span>
+                    </span>
+                </b>
+            </p>
+
+            <p class="view-selector">
+                <md-tabs md-dynamic-height md-selected="Results.selectedTab">
+                    <md-tab label="List view" md-on-select="Results.tabSelected('list')">
+                        <md-content>
+                            <result  ng-if="Results.selectedTab === 0"  ng-repeat="structure in Results.searchResults.results" result="structure"></result>
+                            <paging
+                                    page="Results.currentPage"
+                                    page-size="Results.PAGE_SIZE"
+                                    total="Results.total"
+                                    ul-class="pagination"
+                                    show-prev-next="true"
+                                    hide-if-empty="true"
+                                    paging-action="Results.pageChanged(page)"
+                                    active-class="active">
+                            </paging>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Synthetic view" md-on-select="Results.tabSelected('firmo')">
+                        <md-content>
+                            <firmography apply-filter="Results.applyFilter" keywords="Results.keywords" apply-filters="Results.applyFilters" ng-if="Results.selectedTab === 1" results="Results.searchResults" ng-if="Results.searchResults"></firmography>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Map" md-on-select="Results.tabSelected('map')">
+                        <md-content>
+                            <iframe ng-if="Results.selectedTab === 2" class="muir-map" ng-src="{{ Results.searchRequest }}"></iframe>
+                        </md-content>
+                    </md-tab>
+                </md-tabs>
+            </p>
+    </div>
+</div>

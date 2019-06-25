@@ -1,0 +1,65 @@
+@require '../../../../assets/variables.styl'
+
+patents {
+  md-autocomplete {
+    margin-bottom: 15px
+  }
+  .count {
+    font-size: small;
+    color: grey;
+  }
+  md-virtual-repeat-container {
+    height: 300px
+    width: 400px
+    border:1px solid lightgrey
+    .header{
+      background-color: color-primary
+      color: white
+      text-align: center
+      padding:10px
+    }
+    .patent{
+      border-bottom:1px solid lightgray
+      color: grey
+      padding:20px
+      &.selected, &:hover{
+        background-color: #F0FAFF
+      }
+      .patent-meta{
+        margin-top: 10px
+        a{
+          color: color-primary
+        }
+      }
+    }
+  }
+  .selected-patent{
+    padding: 0 20px
+    h3{
+      margin: 0
+    }
+    h4{
+      margin-bottom:0
+    }
+    p{
+      &.subtitle{
+        margin-top: 0
+        margin-bottom: 20px
+        font-size:small
+        color: grey
+      }
+      &.description{
+        color: #555
+      }
+    }
+    a{
+      color: color-primary
+    }
+  }
+  .web-detected {
+    a{
+      color: color-primary;
+      font-size: 90%
+    }
+  }
+}

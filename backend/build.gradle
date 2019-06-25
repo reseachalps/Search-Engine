@@ -1,0 +1,207 @@
+// Gradle wrapper
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.3'
+}
+
+// Build scripts
+buildscript {
+    ext {
+        springBootVersion = '1.3.5.RELEASE'
+        ehcacheVersion = '2.10.2'
+        unidecodeVersion = '0.0.7'
+        elasticsearchVersion = '2.3.1'
+        springDataElasticsearchVersion = '2.0.1.RELEASE'
+        commonsCsvVersion = '1.1'
+        commonsIOVersion = '2.4'
+        commonsFileuploadVersion = '1.3.1'
+        springfoxVersion = '2.5.0'
+        jacksonVersion = '2.9.7'
+        juniversalchardetVersion = '1.0.3'
+        guavaVersion = '18.0'
+        httpclientVersion = '4.3.2'
+        slf4jVersion = '1.7.21'
+        commonsLangVersion = '2.6'
+        fongoVersion = '1.6.0'
+        poiVersion = '3.12'
+        cassandraVersion = '3.0.2'
+        cronParserVersion = '2.9'
+        wsdl2javaVersion = '0.10'
+    }
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath("no.nils:wsdl2java:$wsdl2javaVersion")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE")
+    }
+}
+
+
+// Configure projects
+subprojects {
+
+    // Plugins
+    apply(plugin: 'idea')
+    apply(plugin: 'io.spring.dependency-management')
+    apply(plugin: 'java')
+
+    // Project properties
+    group = project.'version.group'
+    version = project.'version.major' + '.' + project.'version.minor' + (project.'version.release'.toBoolean() ? '' : '-SNAPSHOT')
+
+    // Java conf
+    tasks.withType(JavaCompile) {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+
+    configurations {
+        runtime
+    }
+
+    // Repositories
+    repositories {
+        mavenCentral()
+    }
+
+    // Dependencies management
+    dependencyManagement {
+//        dependencies {
+//            dependency("org.elasticsearch:elasticsearch:$elasticsearchVersion")
+//        }
+        imports {
+            mavenBom("org.springframework.boot:spring-boot-starter-parent:$springBootVersion")
+        }
+    }
+}
+
+
+// DP Http
+project(':common-http') {
+    dependencies {
+        compile("org.springframework:spring-context")
+        compile("com.google.guava:guava:$guavaVersion")
+        compile("org.apache.httpcomponents:httpclient:$httpclientVersion")
+        compile("com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion")
+        compile("com.fasterxml.jackson.core:jackson-core:$jacksonVersion")
+        compile("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
+        compile("commons-io:commons-io:$commonsIOVersion")
+        compile("org.slf4j:slf4j-api:$slf4jVersion")
+        compile("com.googlecode.juniversalchardet:juniversalchardet:$juniversalchardetVersion")
+    }
+}
+
+
+// Companies core
+project(':companies-core') {
+    dependencies {
+        compile("org.springframework.boot:spring-boot-starter")
+        compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+        compile("org.springframework.boot:spring-boot-starter-web")
+        compile("com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion")
+        compile("com.fasterxml.jackson.core:jackson-core:$jacksonVersion")
+        compile("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
+        compile("commons-io:commons-io:$commonsIOVersion")
+        compile("com.google.guava:guava:$guavaVersion")
+        testCompile("org.springframework.boot:spring-boot-starter-test")
+    }
+}
+
+// Companies workflow core
+project(':companies-queue') {
+    dependencies {
+        compile project(":companies-core")
+        compile("org.springframework.boot:spring-boot-starter")
+        compile("org.springframework.boot:spring-boot-starter-amqp")
+        compile("commons-lang:commons-lang:$commonsLangVersion")
+        testCompile("org.springframework.boot:spring-boot-starter-test")
+        testCompile("com.github.fakemongo:fongo:$fongoVersion")
+    }
+}
+
+// Project common model
+project(':common') {
+    dependencies {
+        compile project(":common-http")
+        compile project(":companies-core")
+        compile("org.springframework.boot:spring-boot-starter-web")
+        compile("org.springframework.boot:spring-boot-starter-logging")
+        compile("org.springframework.boot:spring-boot-starter-tomcat")
+        compile("org.springframework.boot:spring-boot-starter-mail")
+        compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+        compile("org.springframework.boot:spring-boot-starter-data-elasticsearch")
+        compile("org.springframework.data:spring-data-elasticsearch:$springDataElasticsearchVersion")
+        compile("org.elasticsearch:elasticsearch:$elasticsearchVersion")
+        compile("net.sf.ehcache:ehcache:$ehcacheVersion")
+        compile("me.xuender:unidecode:$unidecodeVersion")
+        compile("com.google.guava:guava:$guavaVersion")
+        compile("org.apache.commons:commons-csv:$commonsCsvVersion")
+        compile("commons-io:commons-io:$commonsIOVersion")
+        compile("commons-fileupload:commons-fileupload:$commonsFileuploadVersion")
+        compile("io.springfox:springfox-swagger2:$springfoxVersion")
+        compile("io.springfox:springfox-swagger-ui:$springfoxVersion")
+        compile("com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion")
+        compile("com.fasterxml.jackson.core:jackson-core:$jacksonVersion")
+        compile("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
+}
+
+// Companies app
+project(':app') {
+    apply(plugin: 'spring-boot')
+    bootRepackage {
+        mainClass = 'eu.researchalps.Application'
+    }
+
+    bootRun {
+
+    }
+
+    dependencies {
+        compile project(':common')
+        compile("org.apache.poi:poi-ooxml:$poiVersion")
+        testCompile("org.springframework.boot:spring-boot-starter-test")
+        testCompile("com.github.fakemongo:fongo:$fongoVersion")
+    }
+}
+
+// Companies app
+project(':workflow') {
+    apply(plugin: 'spring-boot')
+
+    apply(plugin: 'no.nils.wsdl2java')
+    // Generate BVD model from WSDL
+    wsdl2java {
+        wsdlDir = file("$projectDir/src/main/resources/")
+        generatedWsdlDir = file("$projectDir/src/main/generated/")
+        wsdlsToGenerate = [
+                ['-p', 'eu.researchalps.etranslation', '-wsdlLocation', 'classpath:/etranslation.wsdl', "$projectDir/src/main/resources/etranslation.wsdl" ]
+        ]
+        locale = Locale.FRANCE
+    }
+
+    bootRepackage {
+        mainClass = 'eu.researchalps.Application'
+    }
+
+    bootRun {
+
+    }
+
+    dependencies {
+        compile project(':common')
+        compile project(':common-http')
+        compile project(':companies-queue')
+        compile("com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion")
+        compile("com.fasterxml.jackson.core:jackson-core:$jacksonVersion")
+        compile("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
+        compile("com.fasterxml.jackson.dataformat:jackson-dataformat-xml:$jacksonVersion")
+        compile("com.datastax.cassandra:cassandra-driver-core:$cassandraVersion")
+        compile("net.redhogs.cronparser:cron-parser-core:$cronParserVersion")
+        testCompile("org.springframework.boot:spring-boot-starter-test")
+    }
+}

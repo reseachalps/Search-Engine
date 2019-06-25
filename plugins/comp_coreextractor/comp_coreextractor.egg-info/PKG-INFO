@@ -1,0 +1,56 @@
+Metadata-Version: 1.1
+Name: comp-coreextractor
+Version: 1.74
+Summary: Skeleton Checklist
+==================
+
+* Remove .git directory
+* Rename ``packagename`` directory
+* Edit ``setup.py``
+   * change ``packagename``
+   * change ``author``
+   * change ``author_email``
+* Edit this file
+* Optional: install ``python >= 3.3.0`` by calling ``./tools/install_python3.sh``
+* Setup virtualenv by using ``source ./tools/setup_venv.sh``
+* Optional: add dependencies to ``deps.txt``
+* Install dependencies: ``./tools/deps.sh``
+* Test: ``./tools/test.sh``
+* Hack, hack, hack!
+* Check your code style: ``./tools/style.sh``
+* Test: ``./tools/test.sh``
+* ...
+
+**OR**
+
+* Run the magic ``./tools/setup.sh`` script that will do the first steps for you.
+* Hack, hack, hack!
+
+
+Toolbox
+=======
+* ``./tools/test.sh``: run tests
+* ``./tools/style.sh``: run pep8, a tool to check your code style
+* ``./tools/build.sh``: build the package
+* ``./tools/upload.sh``: upload the package to our internal pypi
+   * You need to setup the ``~/.pypirc`` file before uploading, else you will get a ``configparser.NoSectionError: No section: 'internal'`` error.
+   * ``~/.pypirc``::
+
+         [distutils]
+         index-servers = 
+             internal
+        
+         [internal]
+         repository: http://pypi.data-publica.com
+         username: dp
+         password: pythonrox
+* ``./tools/deps.sh``: install the dependencies listed in ``deps.txt``
+* ``./tools/install_python3.sh``: install a python3 interpreter
+* ``./tools/setup_venv.sh``: setup a virtualenv for this project in ``./virtualenv``. Must be ``source``'d: ``source ./tools/setup_venv.sh``
+Home-page: http://pypi.data-publica.com/simple/comp_coreextractor
+Author: Guillaume Lebourgeois
+Author-email: guillaume.lebourgeois@data-publica.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Private :: Do Not Upload

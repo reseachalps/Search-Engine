@@ -1,0 +1,22 @@
+<div class="badge-filter-container" data-layout="column">
+    <div class="checkbox-container" layout="column" layout-align="start stretch">
+        <div class="reset" ng-click="Badge.clearSelection($event)" md-prevent-menu-close>Reset the selection</div>
+        <md-input-container>
+            <label>Search</label>
+            <input ng-model="Badge.search" autocomplete="off">
+        </md-input-container>
+        <div class="checkboxes" ng-if="Badge.values.length > 0">
+            <md-content>
+                <md-grid-list md-cols-xs="2" md-cols="3" md-cols-md="3" md-row-height="1:1" >
+                    <md-grid-tile ng-class="{selected:value.selected}" ng-repeat="value in Badge.values | filter:Badge.search | orderBy:'-count'">
+                        <div data-layout="column" data-layout-align="start center">
+                            <img md-prevent-menu-close ng-click="value.selected=!value.selected" ng-src="/static/tags/{{value.value}}.png" title="{{value.label}}" alt="{{value.label}}"/>
+                            <strong><small>{{value.count}}</small></strong>
+                        </div>
+                    </md-grid-tile>
+                </md-grid-list>
+            </md-content>
+        </div>
+    </div>
+    <md-button class="md-raised md-accent" ng-click="Badge.applySelection()">Apply</md-button>
+</div>

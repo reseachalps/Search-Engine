@@ -1,0 +1,343 @@
+1000	D.GENERALE	DIR.GENERALE	DIRECTION GENERALE
+1020	Pdt d'Hon.	Pdt d'Honneur	Président d'Honneur
+1040	Pdt Cl Ad.	Pdt Conseil Adm.	Président du Conseil d'Adm.
+1041	Vice P.C.A	Vice Pdt Conseil Adm	Vice Président Conseil Adm.
+1060	Administ.	Administrateur	Administrateur
+1061	Adm.Gérant	Adm. Gérant 	Administrateur Gérant 
+1062	Adm. Dir.	Adm. Directeur 	Administrateur Directeur 
+1080	Pdt Cl Srv	Pdt Conseil Surv.	Président du Conseil de Surv.
+1081	M.Cl. Srv.	Membre Conseil Surv.	Membre du Cons.de Surveillance
+1082	Pdt Adm DI	Pdt. Adm. Délégué 	Président Administrat. Délégué
+1100	Pdt Dir.	Pdt Directoire	Président du Directoire
+1110	Co-Pdt Dir	Co-Pdt Directoire	Co-Président du Directoire
+1120	Président	Président	Président
+1140	P.D.G.	P.D.G.	Président Directeur Général
+1144	PDG	PDG	Président Directeur Général
+1141	Pdt.Com.D.	Pdt.Comité Direction	Président Comité de Direction
+1142	V.Pdt.C.D.	Vice Pdt Comité Dir.	Vice Président Comité Direct.
+1143	Mbre.C.Dir	Membre Comité Dir.	Membre du Comité de Direction
+1150	Vice-P.D.G	Vice-Président D.G.	Vice-Président Dir. Général
+1160	Gérant	Gérant	Gérant
+1170	Gérante	Gérante	Gérante
+1180	Co-Gérant	Co-Gérant	Co-Gérant
+1190	Associée	Associé	Associé 
+1200	Propriét.	Propriétaire	Propriétaire
+1210	Co-Propri.	Co-Propriétaire	Co_Propriétaire
+1220	Vice-Prés.	Vice-Président	Vice-Président
+1240	Mbre Dir.	Membre Directoire	Membre du Directoire
+1260	D.G.	D.G.	Directeur Général
+1270	D.G. Dél.	D.G. Délégué	Directeur Général Délégué
+1280	D.G. Adj.	D.G. Adjoint	Directeur Général Adjoint
+1300	Fondé Pvr	Fondé de Pouvoir	Fondé de Pouvoir
+1305	Mandataire	Mandataire 	Mandataire 
+1310	Cons.C.Dir	Conseiller Com. Dir.	Conseiller du Comité Direction
+2000	DIRECTION	DIRECTION	DIRECTION
+2020	D. Associé	Dir. Associé	Directeur Associé
+2030	D. Exéc.	Dir. Exécutif	Directeur Exécutif
+2040	D. Succur.	Dir. Succursale	Directeur de Succursale
+2041	R. Succur.	Resp. Succursale	Responsable de Succursale
+2060	D. Etabl.	Dir. Etablissement	Directeur d'Etablissement
+2061	R. Etabl.	Resp. Etablissement	Responsable d'Etablissement
+2070	D. de Site	Dir. de Site	Directeur de Site
+2071	R. de Site	Resp. de Site	Responsable de Site
+2080	D. Div.	Dir. Division	Directeur de Division
+2081	R. Div.	Resp. Division	Responsable de Division
+2100	D. Départ.	Dir. Département	Directeur de Département
+2101	R. Départ.	Resp. Département	Responsable de Département
+2102	Chef Dépt	Chef de Département	Chef de Département
+2110	R. Equipe	Resp. d'Equipe	Responsable d'Equipe
+2120	D. Central	Dir. Central	Directeur Central
+2121	R. Central	Resp. Central	Responsable Central
+2140	Direction	Directeur	Directeur
+2150	Directrice	Directrice	Directrice
+2160	D. Délégué	Dir. Délégué	Directeur Délégué
+2180	D. Adjoint	Dir. Adjoint	Directeur Adjoint
+2200	D. Cabinet	Dir. Cabinet	Directeur de Cabinet
+2220	Sec. Gén.	Sec. Général	Secrétaire Général
+2240	Adj. Dir.	Adj. Direction	Adjoint de Direction
+2250	Dél. Gén.	Dél. Général	Délégué Général
+2260	Ch. Miss.	Chargé de Mission	Chargé de Mission
+2280	Att. Dir.	Attaché Direction	Attaché de Direction
+2300	Sous-Dir.	Sous-Directeur	Sous-Directeur
+2305	D. Filiale	Dir. Filiale	Directeur Filiale
+2310	R. Filiale	Resp. Filiale	Responsable Filiale
+2320	Conseiller	Conseiller	Conseiller
+2340	Ass. Dir.	Assistante Direction	Assistante de Direction
+2341	ass.dir.h	Assistant Direction	Assitant de direction
+2345	Assistante	Assistante	Assistante
+2350	Resp.	Responsable	Responsable
+2360	Manager	Manager	Manager
+3000	D. CIALE	DIR. COMMERCIALE	DIRECTION COMMERCIALE
+3020	D. Cial	Dir. Commercial	Directeur Commercial
+3021	R. Cial	Resp. Commercial	Responsable Commercial
+3030	Dir.Pro.As	Dir. Prod Assurances	Directeur Product. Assurances
+3031	R.Pro.Ass.	Resp.Prod.Assurances	Responsable Prod. Assurances
+3040	D. Ventes	Dir. Ventes	Directeur des Ventes
+3041	R. Ventes	Resp. Ventes	Responsable des Ventes
+3042	Chef Vtes	Chef des Ventes	Chef des Ventes
+3043	Dir.Sinist	Dir. Sinistres	Directeur des Sinistres
+3044	Resp.Sinis	Resp. Sinistres	Responsable des Sinistres
+3050	D. Diffus.	Dir. Diffusion	Directeur de la Diffusion
+3051	R. Diffus.	Resp. Diffusion	Responsable de la Diffusion
+3060	D. Rég.	Dir. Régional	Directeur Régional
+3061	R. Rég.	Resp. Régional	Responsable Régional
+3070	Dél. Rég.	Dél. Régional	Délégué Régional
+3080	D. Ad. V.	Dir. Adm. Ventes	Directeur de l'Adm. des Ventes
+3081	R. Ad. V.	Resp. Adm. Ventes	Responsable Adm. des Ventes
+3100	D. Ap.-V.	Dir. Après-Vente	Directeur de l'Après-Vente
+3101	R. Ap.-V.	Resp. Après-Vente	Responsable de l'Après-Vente
+3110	D. Devis	Dir. Devis	Directeur Devis
+3111	R. Devis	Resp. Devis	Responsable Devis
+3120	D. d'Ag.	Dir. Agence	Directeur d'Agence
+3121	R. d'Ag.	Resp. Agence	Responsable d'Agence
+3122	Chef Ag.	Chef d'Agence	Chef d'Agence
+3140	D. Ant.	Dir. Antenne	Directeur d'Antenne
+3141	R. Ant.	Resp. Antenne	Responsable d'Antenne
+3145	D. Magasin	Dir. Magasin	Directeur de Magasin
+3146	R. Magasin	Resp. Magasin	Responsable de Magasin
+3150	D. T. Cial	Dir. Tech. Cial	Directeur Technico Commercial
+3151	R. T. Cial	Resp. Tech. Cial	Resp. Technico Commercial
+3160	D. Cli.	Dir. Clientèle	Directeur de Clientèle
+3161	R. Cli.	Resp. Clientèle	Responsable de Clientèle
+3170	Inspecteur	Inspecteur	Inspecteur
+3180	Consultant	Consultant	Consultant
+3190	Agent	Agent	Agent
+3195	Att. Cial	Attaché Commercial	Attaché commercial
+3200	Commercial	Commercial	Commercial
+3210	Commerc. 	Commerciale	Commerciale
+3220	Tech. Com.	Technico-Commercial	Technico-Commercial
+3230	Ass.Com.H	Assist. Commercial	Assistant Commercial
+3231	Ass.Com.F	Assist. Commerciale	Assistante Commerciale
+4000	D. MARK.	DIR. MARKETING	DIRECTION MARKETING
+4010	D. Mark.	Dir. Marketing	Directeur Marketing
+4011	R. Mark.	Resp. Marketing	Responsable Marketing
+4015	D. Produit	Dir. de Produit	Directeur de Produit
+4020	Chef Prod.	Chef de Produit	Chef de Produit
+4030	D. Marché	Dir. de Marché	Directeur de Marché
+4040	Ch. Marché	Chef de Marché	Chef de Marché
+4060	Ch. Etudes	Chargé d'Etudes	Chargé d'Etudes
+5000	D. COMM.	DIR. COMMUNIC.	DIRECTION COMMUNICATION
+5010	D. Comm.	Dir. Communication	Directeur de la Communication
+5011	R. Comm.	Resp. Communication	Responsable Communication
+5020	D. C. Int.	Dir. Comm. Int.	Dir. Communication Interne
+5021	R. C. Int.	Resp. Comm. Int.	Resp. Communication Interne
+5040	D. C. Ext.	Dir. Comm. Ext.	Dir. Communication Externe
+5041	R. C. Ext.	Resp. Comm. Ext.	Resp. Communication Externe
+5060	D. Pub.	Dir. Publicité	Directeur de la Publicité
+5061	R. Pub.	Resp. Publicité	Responsable de la Publicité
+5070	D. Rel. E.	Dir. Rel. Ext.	Dir. des Relations Extérieures
+5071	R. Rel. E.	Resp. Rel. Ext.	Resp. Relations Extérieures
+5080	D. Rel. P.	Dir. Rel. Publiques	Directeur Relations Publiques
+5081	R. Rel. P.	Resp. Rel. Publiques	Resp. Relations Publiques
+5100	D. Pr. Vt	Dir. Promotion Vente	Directeur Promotion des Ventes
+5101	R. Pr. Vt	Resp. Promo. Ventes	Resp. Promotion des Ventes
+5120	D. Mark. D	Dir. Mark. Direct	Directeur du Marketing Direct
+5121	R. Mark. D	Resp. Mark. Direct	Responsable Marketing Direct
+5140	D. Créat.	Dir. Création	Directeur de la Création
+5141	R. Créat.	Resp. Création	Responsable de la Création
+5160	D. Média	Dir. Média	Directeur Média
+5161	R. Média	Resp. Média	Responsable Média
+5180	D. Artist.	Dir. Artistique	Directeur Artistique
+5181	R. Artist.	Resp. Artistique	Responsable Artistique
+6000	D. Exp. I.	DIR. EXPORT IMPORT	DIRECTION EXPORT IMPORT
+6020	D. Intern.	Dir. International	Directeur International
+6021	R. Intern.	Resp. International	Responsable International
+6040	D. Export	Dir. Export	Directeur Export
+6041	R. Export	Resp. Export	Responsable Export
+6060	D. Import	Dir. Import	Directeur Import
+6061	R. Import	Resp. Import	Responsable Import
+6080	D. Zone	Dir. Zone	Directeur de Zone
+6081	R. Zone	Resp. Zone	Responsable de Zone
+6082	Chef Zone	Chef de Zone	Chef de Zone
+6100	D. Secteur	Dir. Secteur	Directeur de Secteur
+6101	R. Secteur	Resp. Secteur	Responsable de Secteur
+7000	D. TECH.P.	DIR. TECH. PRODUCT.	DIRECTION TECHNIQUE PRODUCTION
+7020	D. Tech.	Dir. Technique	Directeur Technique
+7021	R. Tech.	Resp. Technique	Responsable Technique
+7040	D. Prod.	Dir. Production	Directeur de la Production
+7041	R. Prod.	Resp. Production	Responsable de la Production
+7050	D. Indust.	Dir. Industriel	Directeur Industriel
+7051	R. Indust.	Resp. Industriel	Responsable Industriel
+7060	D. Fab.	Dir. Fabrication	Directeur de la Fabrication
+7061	R. Fab.	Resp. Fabrication	Responsable de la Fabrication
+7062	Chef Fab.	Chef Fabrication	Chef de Fabrication
+7080	D. Méth.	Dir. Méthodes	Directeur Méthodes
+7081	R. Méth.	Resp. Méthodes	Responsable Méthodes
+7100	D. Qual.	Dir. Qualité	Directeur Qualité
+7101	R. Qual.	Resp. Qualité	Responsable Qualité
+7120	D. Maint.	Dir. Maintenance	Directeur de la Maintenance
+7121	R. Maint.	Resp. Maintenance	Responsable de la Maintenance
+7140	D. Usine	Dir. d'Usine	Directeur d'Usine
+7141	R. Usine	Resp. d'Usine	Responsable d'Usine
+7150	D. Plann.	Dir. Planning	Directeur de Planning
+7151	R. Plann.	Resp. Planning	Responsable de Planning
+7160	Chef At.	Chef d'Atelier	Chef d'Atelier
+7162	D. Atelier	Dir. Atelier	Directeur Atelier
+7165	R. Atelier	Resp. Atelier	Responsable Atelier
+7170	D. Trav.	Dir. Travaux	Directeur des Travaux
+7171	R. Travaux	Resp. des Travaux	Responsable des Travaux
+7172	Cond. Trav	Cond. de Travaux	Conducteur de Travaux
+7180	D. Opér.	Dir. Opérations	Directeur des Opérations
+7181	R. Opér.	Resp. Opérations	Responsable des Opérations
+7190	Ingénieur	Ingénieur	Ingénieur
+7200	D. Entret.	Dir. Entretien	Directeur de l'Entretien
+7201	R. Entret.	Resp. Entretien	Responsable de l'Entretien
+7220	D. Sécur.	Dir. Sécurité	Directeur de la Sécurité
+7221	R. Sécur.	Resp. Sécurité	Responsable de la Sécurité
+7230	Dir. Env.	Dir. Environnement 	Directeur Environnement 
+7231	D.Adj.Env.	Dir. Adj. Environ.	Directeur Adj. Environnement
+7232	V.Dir.Env.	V.Dir.Environnement	Vice Directeur Environnement
+7233	S.Dir.Env.	S.Dir. Environnement	Sous Directeur Environnement
+7234	Ch.Ser.Env	Ch.Ser.Environnement	Chef de Service Environnement
+7235	Chef Env.	Chef Environnement 	Chef Environnement 
+7236	Resp. Env.	Resp. Environnement 	Responsable Environnement 
+7240	D.Dév.Dur.	Dir. Dével. Durable	Directeur du Dével. Durable
+7241	R.Dév.Dur.	Resp. Dével. Durable	Responsable du Dével. Durable
+8000	D. E. DEV.	DIR. ETU. DEVELOPPEM	DIRECTION ETUDES DEVELOPPEMENT
+8020	D. E. Dév.	Dir. Etudes Dévelop.	Directeur Etudes et Développe.
+8021	R. E. Dév.	Resp. Etudes Dévelop	Resp. Etudes et Développement
+8040	D. Etudes	Dir. Etudes	Directeur des Etudes
+8041	R. Etudes	Resp. Etudes	Responsable des Etudes
+8060	D. Dév.	Dir. Développement	Directeur du Développement
+8061	R. Dév.	Resp. Développement	Responsable du Développement
+8080	D. Rech.	Dir. Recherche	Directeur de la Recherche
+8081	R. Rech.	Resp. Recherche	Responsable de la Recherche
+8100	D. Innov.	Dir. Innovation	Directeur de l'Innovation
+8101	R. Innov.	Resp. Innovation	Responsable de l'Innovation
+8120	D. B. Et.	Dir. Bureau d'Etudes	Directeur du Bureau d'Etudes
+8121	R. B. Et.	Resp. Bur. d'Etudes	Responsable du Bureau d'Etudes
+8130	D. Ing.	Dir. Ingenierie	Directeur Ingenierie
+8131	R. Ing	Resp. Ingenierie	Responsable Ingenierie
+8140	D. Projet	Dir. Projet	Directeur de Projet
+8142	Chef Proje	Chef de Projet	Chef de Projet
+8160	D. Ss-Tr.	Dir. Sous-Traitance	Directeur de la Sous-Traitance
+8161	R. Ss-Tr.	Resp.Sous-Traitance	Resp. de la Sous-Traitance
+8180	Ch. Affair	Chargé d'Affaires	Chargé d'Affaires
+8200	D. Norm.	Dir. Normalisation	Directeur de Normalisation
+8201	R. Norm.	Resp. Normalisation	Responsable de Normalisation
+8220	D. Scien.	Dir. Scientifique	Directeur Scientifique
+8221	R. Scient.	Resp. Scientifique	Responsable Scientifique
+8240	D. Centre	Dir. Centre	Directeur de Centre
+8241	R. Centre	Resp. Centre	Responsable de Centre
+8250	D. Labo.	Dir. Laboratoire	Directeur Laboratoire
+8251	R. Labo.	Resp. Laboratoire	Responsable Laboratoire
+8260	D. Divers.	Dir. Diversification	Dir. de la Diversification
+8261	R. Divers.	Resp. Diversificat.	Resp. de la Diversification
+9000	D. ACHATS	DIR. ACHATS	DIRECTION ACHATS
+9020	D. Achats	Dir. Achats	Directeur des Achats
+9021	R. Achats	Resp. Achats	Responsable des Achats
+9040	D. Logist.	Dir. Logistique	Directeur de la Logistique
+9041	R. Logist.	Resp. Logistique	Responsable de la Logistique
+9060	D. Appro.	Dir. Appro.	Dir. des Approvisionnements
+9061	R. Appro.	Resp. Appro.	Resp. des Approvisionnements
+9080	D. Distr.	Dir. Distribution	Directeur de la Distribution
+9081	R. Distr.	Resp. Distribution	Responsable de la Distribution
+9100	G. Stocks	Gest. Stocks	Gestionnaire des Stocks
+9120	D. Dépôts	Dir. Dépôts	Directeur de Dépôts
+9121	R. Dépôts	Resp. Dépôts	Responsable de Dépôts
+9140	D. Condit.	Dir. Conditionnement	Directeur Conditionnement
+9141	R. Condit.	Resp. Conditionnem.	Responsable Conditionnement
+9160	D. Transp.	Dir. Transport	Directeur du Transport
+9161	R. Transp.	Resp. Transport	Responsable du Transport
+9180	Acheteur	Acheteur	Acheteur
+10000	D. INFO.	DIR. INFORMATIQUE	DIRECTION INFORMATIQUE
+10020	D. d'Expl.	Dir. d'Exploitation	Directeur d'Exploitation
+10021	R. d'Expl.	Resp. d'Exploitation	Responsable d'Exploitation
+10040	D. Info.	Dir. Informatique	Directeur Informatique
+10041	R. Info.	Resp. Informatique	Responsable Informatique
+10060	D. Sys. I.	Dir. Syst. d'Info.	Dir. Systèmes d'Information
+10061	R. Sys. I.	Resp. Syst. d'Info.	Resp. Systèmes d'Information
+10070	D.Site Int	Dir. Site Internet	Directeur Site Internet
+10071	R.Site Int	Resp. Site Internet	Responsable Site Internet
+10080	D. Réseau	Dir. Réseau	Directeur de Réseau
+10081	R. Réseau	Resp. Réseau	Responsable de Réseau
+10090	D.Intranet	Dir. Intranet	Directeur Intranet
+10091	R.Intranet	Resp. Intranet	Responsable Intranet
+10100	D. Bureau.	Dir. Bureautique	Directeur de la Bureautique
+10101	R. Bureau.	Resp. Bureautique	Responsable de la Bureautique
+10120	D. Micro	Dir. Micro	Directeur Micro
+10121	R. Micro	Resp. Micro	Responsable Micro
+11000	D. S. GEN.	DIR. SERV. GENERAUX	DIRECTION SERVICES GENERAUX
+11020	D. S. Gén.	Dir. Serv. Généraux	Dir. des Services Généraux
+11021	R. S. Gén.	Resp. Serv. Généraux	Resp. des Services Généraux
+11040	D. Matér.	Dir. Matériel	Directeur Matériel
+11041	R. Matér.	Resp. Matériel	Responsable Matériel
+11051	R. Expéd.	Resp. Expéditions	Responsable Expéditions
+12000	D. ADM. F.	DIR. ADM. FINANCIERE	DIRECTION ADM. ET FINANCIERE
+12020	D.A.F.	D.A.F.	Directeur Adm. et Financier
+12021	R. Ad. Fi.	Resp. Adm. et Fin.	Responsable Adm. et Financier
+12040	D. Admin.	Dir. Administratif	Directeur Administratif
+12041	R. Admin.	Resp. Administratif	Responsable Administratif
+12060	D. Fin.	Dir. Financier	Directeur Financier
+12061	R. Fin.	Resp. Financier	Responsable Financier
+12080	D. C. Gest	Dir. Compta. Gestion	Directeur Comptabilité Gestion
+12081	R. C. Gest	Resp. Compt. Gestion	Resp. Comptabilité Gestion
+12090	Dir. Gest.	Dir. Gestion	Directeur Gestion
+12091	Dir.A.Gest	Dir. Adj. Gestion 	Directeur Adjoint Gestion
+12092	Ss D.Gest	Ss Dir. Gestion	Sous Directeur Gestion
+12093	Ch.Serv.G.	Chef Serv. Gestion	Chef de Service Gestion
+12094	Chef Gest.	Chef Gestion	Chef GESTION
+12095	Resp.Gest.	Resp. Gestion	Responsable Gestion
+12100	Ch Compt.	Chef Comptable	Chef Comptable
+12111	R. Fact.	Resp. Facturation	Responsable Facturation
+12120	Contr. G.	Contrôleur Gestion	Contrôleur de Gestion
+12140	Créd. Mana	Crédit Manager	Crédit Manager
+12160	D. Trés.	Dir. Trésorerie	Directeur de la Trésorerie
+12161	R. Trés.	Resp. Trésorerie	Responsable de la Trésorerie
+12180	D. Recouv.	Dir. Recouvrement	Directeur du Recouvrement
+12181	R. Recouv.	Resp. Recouvrement	Responsable du Recouvrement
+12200	D. Jur.	Dir. Juridique	Directeur Juridique
+12201	R. Jur.	Resp. Juridique	Responsable Juridique
+12210	Contrôleur	Contrôleur	Contrôleur
+12220	Contr. Bud	Contrôleur Budgét.	Contrôleur Budgétaire
+12230	Comm.Cptes	Com.aux Comptes	Commissaire aux Comptes
+12240	Exp.Compt.	Expert Comptable	Expert Comptable
+12250	Comptable	Comptable	Comptable
+12300	Trésorier	Trésorier	Trésorier
+13000	D. R. HUM.	DIR. RESS. HUMAINES	DIRECTION RESSOURCES HUMAINES
+13020	D.R.H	D.R.H	Directeur Ressources Humaines
+13021	R. R. Hum.	Resp. Ress. Humaines	Responsable Ress. Humaines
+13040	D. Pers.	Dir. Personnel	Directeur du Personnel
+13041	R. Pers.	Resp. Personnel	Responsable du Personnel
+13042	Chef Pers.	Chef du Personnel	Chef du Personnel
+13050	Dir.Organ.	Dir. Organisation 	Directeur Organisation
+13051	D.Adj.Org.	Dir Adj Organisation	Directeur Adjoint Organisation
+13052	S.Dir.Org.	S. Dir. Organisation	Sous Directeur Organisation
+13053	C.Ser.Org.	Chef Service Organ.	Chef de Service Organisation
+13054	Chef Org.	Chef Organisation 	Chef Organisation
+13055	Resp. Org.	Resp. Organisation	Responsable Organisation
+13060	D. Recrut.	Dir. Recrutement	Directeur du Recrutement
+13061	R. Recrut.	Resp. Recrutement	Responsable du Recrutement
+13080	D. Format.	Dir. Formation	Directeur de la Formation
+13081	R. Format.	Resp. Formation	Responsable de la Formation
+13100	D. Dév. S.	Dir. Dévelop. Social	Dir. du Développement Social
+13101	R. Dév. S.	Resp. Dével. Social	Resp. du Développement Social
+13120	D. Paie	Dir. Paie	Directeur Paie
+13121	R. Paie	Resp. Paie	Responsable Paie
+13140	D. Ad. P.	Dir. Adm. Personnel	Dir. de l'Adm. du Personnel
+13141	R. Ad. P.	Resp. Adm. Personnel	Resp. de l'Adm. du Personnel
+14000	DIVERS	DIVERS	DIVERS
+15000	AUTRES	AUTRES FONCTIONS	AUTRES FONCTIONS
+15010	Serv. Doc.	Serv. Documentation	Service Documentation
+15020	Doc. Ciale	Doc. Commerciale	Documentation Commerciale
+15040	Doc. Tech.	Doc. Technique	Documentation Technique
+15050	D. Ecole	Dir. Ecole	Directeur Ecole
+15052	Recteur	Recteur	Recteur
+15053	Proviseur	Proviseur	Proviseur
+15055	D. Pédag.	Dir. Pédagogique	Directeur Pédagogique
+15056	R. Pédag.	Resp. Pédagogique	Responsable Pédagogique
+15060	D. Rédac.	Dir. Rédaction	Directeur de la Rédaction
+15061	R. Rédac.	Resp. Rédaction	Responsable de la Rédaction
+15062	Att. Réd.	Attaché de Rédaction	Attaché de Rédaction
+15065	D. Publ.	Dir. Publication	Directeur de la Publication
+15066	R. Publ.	Resp. Publication	Responsable de la Publication
+15070	Secrétaire	Secrétaire	Secrétaire
+15100	Ambassad.	Ambassadeur	Ambassadeur
+15200	Député	Député	Député
+15300	Maire	Maire	Maire
+15400	Editeur	Editeur	Editeur
+15410	Rév.Entr.	Réviseur d'Entrepr.	Réviseur d'Entreprises
+15420	Cons.G.Hon	Consul Général Hon.	Consul Général d'Honoraire
+15430	Consul Hon	Consul Honoraire	Consul Honoraire
+15440	Consul	Consul	Consul
+15450	Commiss.	Commissaire	Commissaire

@@ -1,0 +1,32 @@
+@require './../../assets/variables.styl';
+
+.home {
+  .footer {
+    width: 100%;
+  }
+}
+.footer{
+  margin-top: 50px;
+  border-top: 1px solid color-accent;
+  text-align: center;
+  .european-container {
+    .flag-and-labels {
+      display: block;
+      img {
+        height: 40px;
+      }
+      .cef-link {
+        color: black;
+        text-decoration: none;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+    .agreement {
+      > div {
+        font-size: 15px;
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+<div class="editing-wrapper" editing="Financial.allowEditing"
+        editing-id="Financial" editing-label="Staff"
+        editing-content="Financial.financial" editing-row="full" structure="Financial.structure" ng-if="">
+    <h2>
+        Payroll
+    </h2>
+    <div ng-if="Financial.financial.employeesField ||
+                        Financial.financial.ecField ||
+                        Financial.financial.researchersPayroll ||
+                        Financial.financial.hdrField ||
+                        Financial.financial.domainRatios">
+        <div data-layout="row" data-layout-xs="column" data-layout-align="space-around center" data-layout-padding data-layout-align-xs="start start">
+            <b data-layout="row" data-layout-align="start center" ng-if="Financial.financial.employeesField" data-flex>
+                <i class="fa fa-users fa-3x fa-fw primary"></i>
+                {{Financial.financial.employeesField}}
+            </b>
+            <div data-layout="column" data-flex>
+                <b ng-if="Financial.financial.ecField">
+                    {{Financial.financial.ecField}}
+                </b>
+            </div>
+            <b ng-if="Financial.financial.hdrField" data-flex>
+               {{Financial.financial.hdrField}}
+            </b>
+        </div>
+        <div ng-if="Financial.financial.researchersPayroll.length > 0" class="payrolls">
+            <h4>
+                Researchers payroll
+            </h4>
+            <div data-layout-gt-sm="row" data-layout="column">
+                <ol flex-gt-sm="50">
+                    <li ng-repeat="etab in Financial.leftPayroll">
+                        <a ng-if="etab.id" ui-sref="structure({id:etab.id})" class="primary">
+                            {{etab.label}}
+                        </a>
+                        <span ng-if="!etab.id">{{etab.label}}</span>
+                    </li>
+                </ol>
+                <ol flex-gt-sm="50" ng-style="{'counter-reset': 'item ' + Financial.leftPayroll.length}" class="custom-counter">
+                    <li ng-repeat="etab in Financial.rightPayroll">
+                        <a ng-if="etab.id" ui-sref="structure({id:etab.id})" class="primary">
+                            {{etab.label}}
+                        </a>
+                        <span ng-if="!etab.id">{{etab.label}}</span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div ng-if="!Financial.financial.employeesField &&
+                        !Financial.financial.ecField &&
+                        !Financial.financial.researchersPayroll &&
+                        !Financial.financial.hdrField &&
+                        !Financial.financial.domainRatios">
+        <p>No information about the staff of this organization</p>
+    </div>
+</div>

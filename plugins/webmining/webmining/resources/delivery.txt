@@ -1,0 +1,26 @@
+2,postnl
+3,ups
+4,tnt
+5,dhl
+6,fedex
+7,bpack
+8,colissimo
+9,chronopost
+10,kiala
+11,bpost
+11,B post
+12,mondial relay
+13,dpd
+14,day by day
+15,gls
+16,kariboo
+17,trans-o-flex
+17,trans o flex
+17,transoflex
+18,postnl pharma
+19,ciblex
+20,relais colis
+21,taxipost
+22,ici relais
+23,bubblepost
+23,bubble post

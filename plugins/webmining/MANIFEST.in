@@ -1,0 +1,4 @@
+# Here you can add files that will be packaged. (http://docs.python.org/3/distutils/sourcedist.html#the-manifest-in-template)
+include deps.txt
+include tools/*
+include webmining/resources/**

@@ -1,0 +1,149 @@
+@require '../../assets/variables.styl'
+
+top-banner-height = 205
+
+.structure {
+  .edition-button {
+    position: fixed
+    left: 2%
+    top: 9px
+    .md-fab{
+      position: absolute
+    }
+    .md-fab.edition {
+      transition: 0.1s ease-in-out;
+      i.fa {
+        display: inline-block
+        vertical-align: middle
+      }
+      &.edit {
+        transform: rotate(0);
+        &.ng-hide {
+          transform: rotate(-180deg);
+        }
+      }
+      &.confirm {
+        transform: rotate(0);
+        &.ng-hide {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+    .edition-button-label {
+      background-color: #fff;
+      border-radius: 5px;
+      color: black;
+      font-weight: bold;
+      font-size: 11px;
+      padding: 5px;
+      width: 62px;
+      text-align: center;
+      margin-top: 70px
+    }
+  }
+  .top-banner {
+    height: top-banner-height px;
+    padding-bottom: 100px;
+    > md-card{
+      padding:0 40px 0 30px
+    }
+    .logo-container {
+      text-align: center
+      img {
+        max-height: 120px;
+        max-width: 100%;
+        width: auto
+      }
+      .research-alps-logo-container{
+        position: relative
+        overflow: hidden;
+        height:70px
+        img {
+          max-height: 70px;
+          padding-right:30px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+        span{
+          position: absolute
+          color: color-primary
+          font-weight: bold
+          font-size: 10px
+          bottom: 0;
+          right: 25px;
+        }
+      }
+    }
+  }
+  .struct-content {
+    margin-top: -80px;
+    .struct-card {
+      background-color: white;
+      padding: 40px 50px;
+      margin-bottom: 30px
+    }
+  }
+  h2{
+    position: relative
+    i.fa{
+      font-size:80%
+    }
+    &:not(.no-border):before{
+      content: '';
+      display: block
+      position: absolute
+      left:-55px
+      top: 2px
+      background-color: color-secondary
+      height: 23px
+      width: 15px
+    }
+    &.title-projects:before{
+      background-color: #4CAF50
+    }
+    &.title-thesis:before{
+      background-color: #f44336
+    }
+    &.title-patents:before{
+      background-color: #795548
+    }
+    &.title-publi:before{
+      background-color: #FFC107
+    }
+  }
+  .editing-wrapper{
+    padding-top: 10px
+    padding-bottom: 10px
+  }
+  .peoples {
+    > div > div {
+      max-height: 230px
+      overflow-y: auto
+    }
+    .people{
+      padding: 0 8px
+      i.fa{
+        vertical-align: middle
+      }
+      > * {
+        justify-content: left
+      }
+      > div{
+        display: inline-block
+        vertical-align: middle
+        width: calc(100% - 30px)
+        padding: 10px;
+        box-sizing border-box;
+        color: grey
+        font-size:small
+        a{
+          text-decoration: underline
+          color: grey
+          &:hover{
+            color: color-primary
+          }
+        }
+      }
+    }
+  }
+}

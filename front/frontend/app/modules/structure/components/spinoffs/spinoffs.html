@@ -1,0 +1,26 @@
+<div class="spinoffs editing-wrapper" ng-if="Spinoff.structure.structure.kind === 'RNSR'" editing="Spinoff.allowEditing" editing-id="Spinoffs" editing-label="Spinoffs" editing-content="Spinoff.spinoffs" structure="Spinoff.structure"  editing-row="full" >
+    <h2>Spinoff</h2>
+    <ul>
+        <li ng-repeat="spinoff in Spinoff.spinoffs">
+            <a ui-sref="structure({id:spinoff.idCompany})">
+                {{spinoff.labelCompany}}
+            </a>
+        </li>
+    </ul>
+    <p ng-if="!Spinoff.spinoffs">No spinoff identified.</p>
+</div>
+<div class="spinoffs editing-wrapper" ng-if="(Spinoff.spinoffFrom.length > 0 || Spinoff.allowEditing) && Spinoff.structure.structure.kind !== 'RNSR'">
+    <h2>Origin <span ng-if="Spinoff.spinoffFrom.length > 1">laboratories</span><span ng-if="Spinoff.spinoffFrom.length <= 1">laboratory</span>
+        &nbsp;<i class="fa fa-info-circle">
+        <md-tooltip md-direction="right">
+          This company is a spinoff of the following laboratories
+        </md-tooltip>
+    </i></h2>
+    <ul ng-if="Spinoff.spinoffFrom">
+        <li ng-repeat="spinoff in Spinoff.spinoffFrom">
+            <a ui-sref="structure({id:spinoff.id})">
+                {{spinoff.label}}
+            </a>
+        </li>
+    </ul>
+</div>

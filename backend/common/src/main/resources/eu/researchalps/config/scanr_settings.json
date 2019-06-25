@@ -1,0 +1,320 @@
+{
+  "index": {
+    "max_result_window": 25000,
+    "analysis": {
+      "filter": {
+        "word_del": {
+          // keep hyphen in "C-Radar"
+          "type": "word_delimiter",
+          "split_on_numerics": false,
+          "split_on_case_change": false,
+          "stem_english_possessive": true,
+          "type_table": [
+            "\\u002D => ALPHANUM"
+          ]
+        },
+        "english_stemmer": {
+          "type": "stemmer",
+          "language": "english"
+        },
+        "my_stop": {
+          "type": "stop",
+          "ignore_case": 1,
+          "stopwords": [
+            "acceptez",
+            "accueil",
+            "acrobat",
+            "actualités",
+            "adobe",
+            "agenda",
+            "ajouter",
+            "all rights",
+            "aller",
+            "amiens",
+            "analyse",
+            "analysis",
+            "any",
+            "api",
+            "approach",
+            "article",
+            "auteur",
+            "avenue",
+            "based",
+            "been",
+            "between",
+            "bibtex",
+            "blog",
+            "board",
+            "boutique",
+            "bretagne",
+            "can",
+            "cedex",
+            "centre",
+            "cgu",
+            "cgv",
+            "chez",
+            "clients",
+            "cnrs",
+            "com",
+            "comme",
+            "comments",
+            "conditions",
+            "connexion",
+            "contact",
+            "contacter",
+            "content",
+            "cookies",
+            "copyright",
+            "das",
+            "deconnecter",
+            "del",
+            "der",
+            "devis",
+            "die",
+            "dimanche",
+            "download",
+            "during",
+            "email",
+            "english",
+            "entre",
+            "equipe",
+            "faq",
+            "fax",
+            "fermer",
+            "flash player",
+            "fr",
+            "français",
+            "france",
+            "friday",
+            "from",
+            "für",
+            "gdr",
+            "générales",
+            "google",
+            "group",
+            "groupe",
+            "have",
+            "his",
+            "home",
+            "http",
+            "https",
+            "industries",
+            "info",
+            "infos",
+            "inra",
+            "inria",
+            "inserm",
+            "institut",
+            "intégral",
+            "internet",
+            "javascript",
+            "jeudi",
+            "jpg",
+            "laboratoires",
+            "las",
+            "légales",
+            "légales crédits",
+            "linkedin",
+            "lire",
+            "login",
+            "los",
+            "lundi",
+            "lyon",
+            "mardi",
+            "marseille",
+            "mentions",
+            "mentions légales",
+            "menu",
+            "mercredi",
+            "method",
+            "mon",
+            "monday",
+            "more",
+            "my",
+            "nantes",
+            "nbsp",
+            "nbsp nbsp",
+            "net",
+            "new",
+            "news",
+            "newsletter",
+            "next",
+            "notre",
+            "nous",
+            "null",
+            "our",
+            "page",
+            "paper",
+            "para",
+            "paris",
+            "partenariats",
+            "password",
+            "pasteur",
+            "pdf",
+            "plus",
+            "poitiers",
+            "posted",
+            "présentation",
+            "press",
+            "presse",
+            "previous",
+            "privacy",
+            "prix inria",
+            "projet",
+            "properties",
+            "publié",
+            "read",
+            "recherche",
+            "ref",
+            "réf",
+            "rejoindre",
+            "rennes",
+            "research",
+            "rights reserved",
+            "rss",
+            "rue",
+            "samedi",
+            "sas",
+            "saturday",
+            "savoir",
+            "scientifique",
+            "search",
+            "site",
+            "sitemap",
+            "sites",
+            "some",
+            "sommes-nous",
+            "strasbourg",
+            "sub",
+            "suite",
+            "sunday",
+            "tel",
+            "tél",
+            "thursday",
+            "titre",
+            "ttc",
+            "tuesday",
+            "twitter",
+            "two",
+            "ufr",
+            "umr",
+            "und",
+            "université",
+            "using",
+            "van",
+            "vendredi",
+            "voir",
+            "von",
+            "we",
+            "web",
+            "website",
+            "wednesday",
+            "were",
+            "which",
+            "www",
+            "you",
+            "your"
+          ]
+        },
+        "french_stop": {
+          "type": "stop",
+          "stopwords": "_french_"
+        },
+        "english_stop": {
+          "type": "stop",
+          "stopwords": "_english_"
+        },
+        "italian_stop": {
+          "type":       "stop",
+          "stopwords":  "_italian_"
+        },
+        "german_stop": {
+          "type": "stop",
+          "stopwords": "_german_"
+        },
+        "complete_elision": {
+          "type": "elision",
+          "articles_case": true,
+          "articles": [
+            "agl", "all", "c", "coll", "d", "dagl", "dall", "degl", "dell", "gl", "j", "jusqu", "l", "lorsqu", "m", "n", "negl", "nell", "pell", "puisqu", "qu", "quoiqu", "s", "sugl", "sull", "t", "un", "v"
+          ]
+        },
+        "num": {
+          // remove nums
+          "type": "pattern_replace",
+          "pattern": "^\\d+\\.?\\d*$"
+        },
+        "flength": {
+          "type": "length",
+          "min": 2
+        }
+      },
+      "analyzer": {
+        "text": {
+          "type": "custom",
+          "tokenizer": "whitespace",
+          "filter": [
+            "word_del",
+            "complete_elision",
+            "lowercase",
+            "french_stop",
+            "english_stop",
+            "italian_stop",
+            "german_stop",
+            "asciifolding",
+            "english_stemmer"
+          ]
+        },
+        "word_cloud": {
+          "type": "custom",
+          "tokenizer": "whitespace",
+          "filter": [
+            "word_del",
+            "complete_elision",
+            "lowercase",
+            "my_stop",
+            "french_stop",
+            "english_stop",
+            "italian_stop",
+            "german_stop",
+            "asciifolding",
+            "num",
+            "flength",
+            "english_stemmer"
+          ]
+        },
+        "exact_match": {
+          "type": "simple"
+        },
+        "domain": {
+          "type": "custom",
+          "tokenizer": "domain_tokenizer",
+          "filter": [
+            "lowercase"
+          ]
+        },
+        "structure_name": {
+          "type": "custom",
+          "tokenizer": "non_alnum_tokenizer",
+          "filter": [
+            "lowercase",
+            "asciifolding"
+          ]
+        }
+      },
+      "tokenizer": {
+        "non_alnum_tokenizer": {
+          "type": "pattern",
+          "pattern": "(?U)[^\\p{Alnum}]",
+          "group": -1,
+          "flags": ""
+        },
+        "domain_tokenizer": {
+          "type": "path_hierarchy",
+          "delimiter": ".",
+          "reverse": true
+        }
+      }
+    }
+  }
+}

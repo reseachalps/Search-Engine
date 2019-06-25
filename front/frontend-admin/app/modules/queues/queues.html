@@ -1,0 +1,9 @@
+<div class="queues" data-layout="column" data-layout-padding>
+    <span ng-if="Queues.lastUpdated" style="position: absolute; top: 75px;">Last updated: {{ Queues.lastUpdated | date:'yyyy-MM-dd HH:mm:ss'}}    </span>
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab ng-repeat="q in Queues.queues.tabs"
+                label="{{ q.title }} (M: {{ q.count.messages }}) (E: {{ q.count.errors }})">
+            <svg-monitoring class="svgmonitor" nodes="Queues.queues.nodes" description="q" status="Queues.status"></svg-monitoring>
+        </md-tab>
+    </md-tabs>
+</div>

@@ -1,0 +1,144 @@
+{
+    "tabs": [
+        {
+            "title": "Core",
+            "svg": "core"
+        }
+    ],
+    "nodes": {
+        "FULLSTRUCTURE_UPDATED": {
+            "type": "exchange",
+            "label": "Full Company Updated"
+        },
+        "ERROR": {
+            "type": "error_count",
+            "url": "/errors"
+        },
+        "PLUGIN_ERROR": {
+            "type": "queue",
+            "input": false,
+            "output": true,
+            "label": "",
+            "placement": "top"
+        },
+        "CRAWLER": {
+            "type": "queue",
+            "input": true,
+            "output": true,
+            "label": "Crawler",
+            "placement": "left"
+        },
+        "PUBLICATION_RESOLVER": {
+            "type": "queue",
+            "input": true,
+            "output": true,
+            "label": "CrossRef Resolver",
+            "placement": "left"
+        },
+        "PUBLICATION_EXTRACTOR": {
+            "type": "queue",
+            "input": true,
+            "output": true,
+            "label": "Publication Extractor",
+            "placement": "left"
+        },
+        "SCREENSHOT": {
+            "type": "queue",
+            "input": true,
+            "output": true,
+            "label": "Screenshot",
+            "placement": "left"
+        },
+        "CORE_EXTRACTOR": {
+            "type": "queue",
+            "input": true,
+            "output": true,
+            "label": "Core Extractor",
+            "placement": "left"
+        },
+        "NAMED_ENTITY_DETECTER": {
+            "type": "queue",
+            "input": true,
+            "output": true,
+            "label": "Named Entity",
+            "placement": "left"
+        },
+        "OAI_FETCHER": {
+            "type": "queue",
+            "input": true,
+            "output": false,
+            "label": "OAI Fetcher",
+            "placement": "left"
+        },
+        "OAI_ENTRIES": {
+            "type": "queue",
+            "input": false,
+            "output": true,
+            "label": "OAI Entries",
+            "placement": "left"
+        },
+        "INDEX_STRUCTURE": {
+            "type": "queue",
+            "input": false,
+            "output": true,
+            "label": "Full Structure Indexer",
+            "placement": "top"
+        },
+        "oai:HAL": {
+            "type": "schedule",
+            "input": false,
+            "output": false,
+            "label": "HAL Publications",
+            "placement": "bottom"
+        },
+        "oai:INRA": {
+            "type": "schedule",
+            "input": false,
+            "output": false,
+            "label": "INRA Publication",
+            "placement": "bottom"
+        },
+        "menesr:spp": {
+            "type": "schedule",
+            "input": false,
+            "output": false,
+            "label": "Structures, Projects, Publis",
+            "placement": "bottom"
+        },
+        "menesr:cv": {
+            "type": "schedule",
+            "input": false,
+            "output": false,
+            "label": "CV",
+            "placement": "bottom"
+        },
+        "crawl:all": {
+            "type": "schedule",
+            "input": false,
+            "output": false,
+            "label": "Re crawl",
+            "placement": "bottom"
+        },
+        "crawl:publication": {
+            "type": "schedule",
+            "input": false,
+            "output": false,
+            "label": "Publication Extraction",
+            "placement": "top"
+        },
+        "index:updated": {
+            "type": "schedule",
+            "input": false,
+            "output": false,
+            "label": "Index Updated",
+            "placement": "top"
+        },
+        "errors:recover": {
+            "type": "schedule",
+            "input": false,
+            "output": false,
+            "label": "Errors Recover",
+            "placement": "bottom"
+        }
+    }
+}

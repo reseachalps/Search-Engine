@@ -1,0 +1,40 @@
+<!---->
+<div class="search" data-layout="column">
+    <share-button hide-sm hide-xs></share-button>
+    <div class="top-banner" data-layout-padding layout="row" data-layout-align="center">
+        <div flex hide-sm hide-xs hide-md></div>
+        <md-card flex="70" flex-lg="80" flex-md="100" flex-sm="100" flex-xs="100" data-layout="row" class="md-whiteframe-8dp" layout-xs="column">
+            <div class="logo-container" layout="column" layout-xs="row" data-layout-align-xs="center" data-layout-align="start center">
+                <a ui-sref="home" class="research-alps-logo-container">
+                    <img src="app/assets/img/ReSearchAlpsLogo.png" alt="Logo ReasearchAlps">
+                    <span class="beta">BETA</span>
+                </a>
+            </div>
+            <div flex>
+                <search-bar query="Search.query"></search-bar>
+                <search-filters apply-filter="Search.applyFilter" apply-filters="Search.applyFilters" query="Search.query" search-results="Search.searchResults"></search-filters>
+            </div>
+        </md-card>
+        <div flex hide-sm hide-xs hide-md></div>
+    </div>
+    <div class="export-button">
+        <a ng-href="{{Search.exportLink}}" target="_blank">
+            <md-button class="md-fab md-accent exports" aria-label="Exporter">
+                <i class="fa fa-2x fa-cloud-download"></i>
+                <md-tooltip md-direction="top">
+                    Only the 1000 first results
+                </md-tooltip>
+            </md-button>
+        </a>
+        <div class="export-button-label">
+            <span>Export</span>
+        </div>
+    </div>
+    <div data-layout-padding layout="row" data-layout-align="center">
+        <div flex hide-sm hide-xs hide-md></div>
+        <md-card flex="70" flex-lg="80" flex-md="100" flex-sm="100" flex-xs="100" class="search-results-container md-whiteframe-8dp">
+            <search-results apply-filter="Search.applyFilter" apply-filters="Search.applyFilters" search-results="Search.searchResults"></search-results>
+        </md-card>
+        <div flex hide-sm hide-xs hide-md></div>
+    </div>
+</div>

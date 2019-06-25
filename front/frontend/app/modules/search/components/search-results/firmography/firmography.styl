@@ -1,0 +1,66 @@
+@require '../../../../../assets/variables.styl'
+
+firmography
+  display: block
+  >div {
+    padding: 20px 0
+  }
+  .chart-title{
+    text-align: center
+    color: grey
+    margin-top: 0
+    &.tutelle-title{
+      margin-top: 10px
+      margin-bottom: 10px
+    }
+  }
+  .chart-subtitle{
+    text-align: center;
+    margin-top: -20px;
+    font-size: 0.8em;
+    margin-bottom: 20px;
+    color:darkgray;
+    font-weight: bold;
+  }
+  .nvd3-svg {
+    overflow: visible;
+  }
+  .nvd3 {
+    .nv-pie path, .nv-group rect {
+      fill-opacity 0.9
+    }
+    .nv-pie .nv-label text{
+      font-weight: bold
+    }
+    .nv-axis path{
+      stroke: white;
+    }
+  }
+  .clickable {
+    .nv-pie path, .nv-bar rect {
+      cursor: pointer;
+    }
+  }
+  h2 {
+    margin-bottom: 5px
+    &.public {
+      color: color-secondary
+    }
+    &.private {
+      color: color-private
+    }
+    &.unknown {
+      color: color-unknown
+    }
+  }
+  md-divider{
+    &.public {
+      border-color: color-secondary !important
+    }
+    &.private {
+      border-color: color-private !important
+    }
+    &.unknown {
+      color: color-unknown
+    }
+  }

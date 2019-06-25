@@ -1,0 +1,100 @@
+<div data-layout="row" data-layout-align="center">
+    <div flex data-layout-xs="column">
+        <b class="primary title">Filter by:</b><!--
+        --><md-menu md-offset="0 43" ng-if="Filters.filtersConfig.entityFilterEnable">
+            <md-button class="md-raised" aria-label="Filter by entity type" ng-click="Filters.openMenu($mdOpenMenu, $event)">
+                Entity types <i class="fa fa-angle-right fa-fw"></i>
+            </md-button>
+            <md-menu-content width="6">
+                <radio-filter  data-layout="column"
+                    values="Filters.typeFilterValues"
+                    filter-id="publicEntity"
+                    selected="Filters.typeRadio"
+                    apply-filter="Filters.applyFilter(id, value)"></radio-filter>
+            </md-menu-content>
+        </md-menu><!--
+        --><md-menu md-offset="0 43" ng-if="Filters.filtersConfig.countriesFilterEnable">
+            <md-button class="md-raised" aria-label="Filter by countries" ng-click="Filters.openMenu($mdOpenMenu, $event)">
+                Countries <i class="fa fa-angle-right fa-fw"></i>
+            </md-button>
+            <md-menu-content width="6">
+                <checkbox-filter  data-layout="column"
+                    values="Filters.countriesFilterValues"
+                    filter-id="countries"
+                    selected="Filters.countriesCheckboxes"
+                    apply-filter="Filters.applyFilters(id, filters)"></checkbox-filter>
+            </md-menu-content>
+        </md-menu><!--
+        --><md-menu md-offset="0 43" ng-if="Filters.filtersConfig.tutelleFilterEnable">
+            <md-button class="md-raised" aria-label="Filter by institutions" ng-click="Filters.openMenu($mdOpenMenu, $event)">
+                Institutions <i class="fa fa-angle-right fa-fw"></i>
+            </md-button>
+            <md-menu-content width="7">
+                <checkbox-filter data-layout="column"
+                        values="Filters.tutellesFilterValues"
+                        filter-id="institutions"
+                        selected="Filters.tutellesCheckboxes"
+                        get-labels-from-nomenclature="true"
+                        apply-filter="Filters.applyFilters(id, filters)"></checkbox-filter>
+            </md-menu-content>
+        </md-menu><!--
+        --><md-menu md-offset="0 43"  ng-if="Filters.filtersConfig.subjectFilterEnable">
+            <md-button class="md-raised" aria-label="Filter by field" ng-click="Filters.openMenu($mdOpenMenu, $event)">
+                Fields <i class="fa fa-angle-right fa-fw"></i>
+            </md-button>
+            <md-menu-content width="6">
+                <themes-filter
+                        selected="Filters.selectedTheme"
+                        apply-filter="Filters.applyFilters(id, filters)"></themes-filter>
+            </md-menu-content>
+        </md-menu><!--
+        --><md-menu md-offset="0 43"  ng-if="Filters.filtersConfig.geographicFilterEnable">
+            <md-button class="md-raised" aria-label="Filter by location" ng-click="Filters.openMenu($mdOpenMenu, $event)">
+                Location <i class="fa fa-angle-right fa-fw"></i>
+            </md-button>
+            <md-menu-content width="7">
+                <checkbox-filter data-layout="column"
+                        values="Filters.nutsFilterValues"
+                        filter-id="nuts"
+                        selected="Filters.nutsCheckboxes"
+                        get-labels-from-nomenclature="true"
+                        apply-filter="Filters.applyFilters(id, filters)"></checkbox-filter>
+            </md-menu-content>
+        </md-menu><!--
+        --><md-menu md-offset="0 43" ng-if="Filters.filtersConfig.projectFilterEnable">
+            <md-button class="md-raised" aria-label="Filter by project" ng-click="Filters.openMenu($mdOpenMenu, $event)">
+                Projects <i class="fa fa-angle-right fa-fw"></i>
+            </md-button>
+            <md-menu-content width="6">
+                <projects-filter
+                        apply-filter="Filters.applyFilters(id, filters)"
+                        selected="Filters.selectedProject"></projects-filter>
+            </md-menu-content>
+        </md-menu><!--
+        --><md-menu md-offset="0 43"  ng-if="Filters.filtersConfig.tagsFilterEnable">
+            <md-button class="md-raised" aria-label="Filter by tags" ng-click="Filters.openMenu($mdOpenMenu, $event)">
+                Tags <i class="fa fa-angle-right fa-fw"></i>
+            </md-button>
+            <md-menu-content width="7">
+                <badge-filter data-layout="column"
+                              values="Filters.badgeFilterValues"
+                              selected="Filters.badgeCheckboxes"
+                              filter-id="badges"
+                              apply-filter="Filters.applyFilters(id, filters, operation)"></badge-filter>
+            </md-menu-content>
+        </md-menu><!--
+        --><md-menu md-offset="0 43" ng-if="Filters.filtersConfig.sourcesFilterEnable">
+            <md-button class="md-raised" aria-label="Filter by sources" ng-click="Filters.openMenu($mdOpenMenu, $event)">
+                Sources <i class="fa fa-angle-right fa-fw"></i>
+            </md-button>
+            <md-menu-content width="6">
+                <checkbox-filter  data-layout="column"
+                    values="Filters.sourcesFilterValues"
+                    filter-id="sources"
+                    selected="Filters.sourcesCheckboxes"
+                    apply-filter="Filters.applyFilters(id, filters)"></checkbox-filter>
+            </md-menu-content>
+        </md-menu>
+        <active-filters query="Filters.query"></active-filters>
+    </div>
+</div>

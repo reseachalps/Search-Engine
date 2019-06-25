@@ -1,0 +1,12 @@
+1,American Express
+2,Bancontact
+3,Wire transfer
+4,Credit Card
+5,E-Credit Card
+6,Cofinoga
+7,Electron
+8,Eurocard
+9,Maestro
+10,Mastercard
+11,PayPal
+12,Visa

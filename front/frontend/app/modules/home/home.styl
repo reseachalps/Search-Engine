@@ -1,0 +1,50 @@
+@require './../../assets/variables.styl';
+
+body {
+  div[data-ui-view].homepage {
+    height:100%;
+    min-height:0;
+    .home-container {
+      height: 100%;
+      position: relative;
+      min-height: 640px;
+      .header {
+        height: 15%;
+      }
+      .home-content {
+        margin-bottom: 40px;
+        .img-container {
+          width: 40%
+          max-width: 400px
+          min-width: 200px
+          img {
+            max-width: 100%
+          }
+        }
+        form {
+          margin-top: 20px
+          input {
+            width: 100%
+            min-width: 300px
+          }
+        }
+        a {
+          .md-button {
+            padding: 2px 6px
+            margin: 0
+            i.fa{
+              display: none
+            }
+          }
+        }
+        .direct-access {
+          text-decoration: underline
+          padding-left: 10px
+          font-size: small
+          font-weight: bold
+          margin-bottom: 0
+        }
+      }
+    }
+  }
+}

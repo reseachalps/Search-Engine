@@ -1,0 +1,7 @@
+FROM buildpack-deps:jessie-curl
+COPY ./deploy-front.sh /deploy-front.sh
+COPY ./root.conf /root.conf
+COPY ./root_location.conf /root_location.conf
+COPY ./dist /app
+
+ENTRYPOINT ["/bin/bash", "/deploy-front.sh"]

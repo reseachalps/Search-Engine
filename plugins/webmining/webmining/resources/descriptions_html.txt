@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+  <html>
+  <head>     
+
+          <title>python - nose tools and pylint - Stack Overflow</title>
+  </head><body>chatte</body></html>
+---
+  <!DOCTYPE html>
+  <html>
+  <head>     
+
+          <title>python - nose tools and pylint - Stack Overflow</title>
+          <meta name="description" content="What is the right way to use nose.tools and keep pylint happy?" />
+          <meta name="description" content="second content description" />
+  </head><body>chatte</body></html>
+---
+<html lang="fr" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="content-language" content="fr">
+
+<title>Fioul combustibles - Barneaud et Giraud à Digne les Bains</title>
+
+<meta name="author" content="Barneaud et Giraud">
+
+  <meta name="description" content="Située au coeur du Pays Dignois, la société Barneaud et Giraud est spécialisée dans la distribution du fioul auprès d'une clientèle de particuliers et professionnels depuis 1959 (fioul pour chauffage ">
+
+    <meta property="og:description" content="Située au coeur du Pays Dignois, la société Barneaud et Giraud est spécialisée dans la distribution du fioul auprès d'une clientèle de particuliers et professionnels depuis 1959 (fioul pour chauffage ">
+
+  <meta name="keywords" content=", Fioul combustibles à Digne les Bains, Barneaud et Giraud à 4  rue Nicéphore Niepce - ZI Saint-Christophe    04000 Digne les Bains (France)">
+
+  <meta property="og:title" content="Barneaud et Giraud">
+
+  <meta property="og:type"  content="company">
+
+    <meta property="og:image" content="http://static.seety.pagesjaunes.fr/asset_site_b27fa1e0-233e-4b53-b519-d1c5267bdbc2/00100813_PVI_0001_HOME.jpg">
+  <meta property="og:url" content="/">
+<link rel="shortcut icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width"/>
+<!-- PR 0 -->
+  <link rel="stylesheet" type="text/css" href="/v/854102360/1259686274/css/style_h002.css" />
+  <script type="text/javascript" src="http://axe.mappy.com/1v1/init/get.aspx?auth=ETyUYJiYnyirG+bSlKaALZSngspuMdFQdILFYJSQxAyr27zpRV78DP/EcFRjoqceS2w4mbDGg1o=&amp;version=2.10&amp;solution=ajax&amp;putCookie=done"></script>
+
+  <link rel="stylesheet" type="text/css" href="/plugins/api/fonts/css/YanoneKaffeesatz/400,700" />
+  <script type="text/javascript">less = { env: 'development'};</script>
+<!-- PR 1 -->
+<!-- PR 2 -->
+<!-- PR 3 -->
+
+  <!--[if lt IE 9]><script src="/2112847318/script/html5.js"></script><![endif]-->
+
+</head>
+<body>chatte</body>
+</html>

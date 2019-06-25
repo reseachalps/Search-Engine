@@ -1,0 +1,19 @@
+{
+    "domains_blacklist": [
+        "domain.com",
+        "example.com",
+        "exemple.fr"
+    ],
+    "generic_prefixes": [
+        "accueil", "administration", "bienvenue", "commercial", "communication", "contact", 
+        "contactgroupe", "hotline", "info", "infos", "job", "jobs", "mail", "office", "press", 
+        "recruitment", "recrutement", "sales", "service.clients", "serviceclient", "serviceconso", 
+        "webmaster"
+    ],
+    "prefixes_blacklist": [
+        "cnil"
+    ],
+    "email_providers": [
+        "gmail", "hotmail", "wanadoo"
+    ]
+}

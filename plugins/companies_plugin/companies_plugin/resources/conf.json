@@ -1,0 +1,35 @@
+{
+    "rabbit": {
+        "hostname": "localhost",
+        "port": "5672",
+        "username": "guest",
+        "password": "guest"
+    },
+    "crawl_store": {
+        "hostnames": ["127.0.0.1"],
+        "keyspace": "crawl_store"
+    },
+    "search_engine": {
+        "hostname": "localhost",
+        "port": "9199",
+        "index": "companies"
+    },
+    "database": {
+        "hostname": "localhost",
+        "database": "companies",
+        "username": "",
+        "password": "",
+        "port": "27017"
+    },
+    "proxy": {
+        "url": "http://proxies.data-publica.com",
+        "username": "dp",
+        "password": "Xi9ahca1iG"
+    },
+    "crawler": {
+        "depth":2,
+        "page_max":80,
+        "page_size_max":300000
+    }
+     
+}

@@ -1,0 +1,163 @@
+<div class="correction-container" data-layout="column">
+    <div class="page-header">
+        <h1>Correction</h1>
+    </div>
+
+    <div>
+        <md-card>
+            <md-card-content data-layout="row" data-layout-align="space-between center">
+                <h3>{{ Correction.structure.structure.label }}</h3>
+                <div>
+                    <md-icon md-font-icon="fa-spinner" class="fa" ng-if="Correction.querying"></md-icon>
+                    <md-button class="md-raised md-primary"
+                               ng-click="Correction.save()" ng-disable="Correction.querying">
+                        Save
+                    </md-button>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
+    <div data-layout="row">
+        <md-card flex>
+            <md-card-header data-layout="column" data-layout-align="stretch">
+                <div data-layout="row" data-layout-align="space-between">
+                    <h4>Force Facebook Accounts</h4>
+                    <md-checkbox class="md-secondary" ng-model="Correction.twitterCorrection"></md-checkbox>
+                </div>
+            </md-card-header>
+            <md-card-content ng-if="Correction.twitterCorrection">
+                <md-list layout="column">
+                    <md-list-item ng-repeat="twitter in Correction.correction.twitterAccounts track by $index"
+                                  layout-align="stretch" layout="column">
+                        <md-input-container md-no-float class="md-block">
+                            <input ng-model="Correction.correction.twitterAccounts[$index]" type="text"
+                                   placeholder="@account">
+                            <md-icon md-font-icon="fa-close" class="fa"
+                                     ng-click="Correction.correction.twitterAccounts.splice($index,1)"></md-icon>
+                        </md-input-container>
+                    </md-list-item>
+                    <md-list-item ng-if="Correction.twitterCorrection && !Correction.correction.twitterAccounts.length">
+                        No accounts!
+                    </md-list-item>
+                    <md-list-item ng-if="Correction.twitterCorrection">
+                        <md-button class="md-raised md-primary"
+                                   ng-click="Correction.correction.twitterAccounts.push('');">
+                            Add account
+                        </md-button>
+                    </md-list-item>
+                </md-list>
+            </md-card-content>
+        </md-card>
+        <md-card flex>
+            <md-card-header data-layout="column" data-layout-align="stretch">
+                <div data-layout="row" data-layout-align="space-between">
+                    <h4>Force Twitter Accounts</h4>
+                    <md-checkbox class="md-secondary" ng-model="Correction.facebookCorrection"></md-checkbox>
+                </div>
+            </md-card-header>
+            <md-card-content ng-if="Correction.facebookCorrection">
+                <md-list layout="column">
+                    <md-list-item ng-repeat="facebook in Correction.correction.facebookAccounts track by $index"
+                                  layout-align="stretch" layout="column">
+                        <md-input-container md-no-float class="md-block">
+                            <input ng-model="Correction.correction.facebookAccounts[$index]" type="text"
+                                   placeholder="https://www.facebook.com/Inria.fr">
+                            <md-icon md-font-icon="fa-close" class="fa"
+                                     ng-click="Correction.correction.facebookAccounts.splice($index,1)"></md-icon>
+                        </md-input-container>
+                    </md-list-item>
+                    <md-list-item
+                            ng-if="Correction.facebookCorrection && !Correction.correction.facebookAccounts.length">
+                        No accounts!
+                    </md-list-item>
+                    <md-list-item ng-if="Correction.facebookCorrection">
+                        <md-button class="md-raised md-primary"
+                                   ng-click="Correction.correction.facebookAccounts.push('');">
+                            Add account
+                        </md-button>
+                    </md-list-item>
+                </md-list>
+            </md-card-content>
+        </md-card>
+
+        <md-card flex>
+            <md-card-header data-layout="column" data-layout-align="stretch">
+                <div data-layout="row" data-layout-align="space-between">
+                    <h4>Remove Detected Publication</h4>
+                </div>
+            </md-card-header>
+            <md-card-content>
+                <md-list layout="column">
+                    <md-list-item ng-repeat="pub in Correction.correction.removedPublications track by $index"
+                                  layout-align="stretch" layout="row">
+                        <div>
+                            <md-icon md-font-icon="fa-close" class="fa"
+                                     ng-click="Correction.correction.removedPublications.splice($index,1)"></md-icon>
+                        </div>
+                        <div>{{pub}}</div>
+                    </md-list-item>
+                    <md-list-item ng-if="!Correction.correction.removedPublications.length">
+                        No modifications
+                    </md-list-item>
+                </md-list>
+                <md-autocomplete
+                        md-selected-item="Correction.selectedPublication"
+                        md-search-text="Correction.searchPublication"
+                        md-selected-item-change="Correction.addPublication(Correction.selectedPublication)"
+                        md-items="publication in Correction.detectedPublications | filter:Correction.searchPublication"
+                        md-item-text="publication.title"
+                        md-min-length="0"
+                        placeholder="Select a detected publication">
+                    <md-item-template>
+                        <span>
+                                <strong>{{ publication.authors[0].lastName }}</strong> {{ publication.title }}
+                        </span>
+                    </md-item-template>
+                    <md-not-found>
+                        Not found
+                    </md-not-found>
+                </md-autocomplete>
+            </md-card-content>
+        </md-card>
+
+        <md-card flex>
+            <md-card-header data-layout="column" data-layout-align="stretch">
+                <div data-layout="row" data-layout-align="space-between">
+                    <h4>Remove Detected Projects</h4>
+                </div>
+            </md-card-header>
+            <md-card-content>
+                <md-list layout="column">
+                    <md-list-item ng-repeat="pub in Correction.correction.removedProjects track by $index"
+                                  layout-align="stretch" layout="row">
+                        <div>
+                            <md-icon md-font-icon="fa-close" class="fa"
+                                     ng-click="Correction.correction.removedProjects.splice($index,1)"></md-icon>
+                        </div>
+                        <div>{{pub}}</div>
+                    </md-list-item>
+                    <md-list-item ng-if="!Correction.correction.removedProjects.length">
+                        No modifications
+                    </md-list-item>
+                </md-list>
+                <md-autocomplete
+                        md-selected-item="Correction.selectedProject"
+                        md-search-text="Correction.searchProject"
+                        md-selected-item-change="Correction.addProject(Correction.selectedProject)"
+                        md-items="project in Correction.structure.detectedProjects | filter:Correction.searchProject"
+                        md-item-text="project.label"
+                        md-min-length="0"
+                        placeholder="Select a detected project">
+                    <md-item-template>
+                        <span>
+                                <strong>{{ project.acronym }}</strong> {{ project.label }}
+                        </span>
+                    </md-item-template>
+                    <md-not-found>
+                        Not found
+                    </md-not-found>
+                </md-autocomplete>
+            </md-card-content>
+        </md-card>
+    </div>
+</div>

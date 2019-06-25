@@ -1,0 +1,3 @@
+scanr-elasticsearch-dev 9300 6400
+scanr-elasticsearch-dev 9200 6300
+scanr-mongo-dev 27017 6500

@@ -1,0 +1,82 @@
+svg-monitoring {
+  &.svgmonitor {
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+    width: 100%;
+    text {
+      &.monitoring {
+        font-family: sans-serif;
+        stroke:none;
+        fill:black;
+      }
+
+      &.message-count {
+        font-size: 20pt;
+        dominant-baseline: middle;
+        text-anchor: left;
+      }
+
+      &.error-count {
+        font-size: 12pt;
+        text-anchor: middle;
+      }
+
+      &.error {
+        fill:red;
+      }
+
+      &.title {
+        font-size: 10pt;
+        text-anchor: left;
+      }
+
+      &.scheduling {
+        font-size: 10pt;
+        text-anchor: middle;
+      }
+
+      &.trigger {
+        font-size: 8pt;
+        text-anchor: middle;
+      }
+
+      &.throughput {
+        font-size: 8pt;
+        text-anchor: end;
+      }
+    }
+    .planned {
+      stroke-width:0;
+      fill: green;
+    }
+    .submitted {
+      stroke-width:0;
+      fill: orange;
+    }
+    .cancelled {
+      stroke-width:0;
+      fill: red;
+    }
+  }
+  .tooltip {
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background-color: lavender;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    text-align: left;
+    font-size: 8pt;
+    pointer-events: all;
+    cursor: hand;
+
+    .title {
+      font-size 12pt;
+      font-weight: bold;
+      padding-bottom: 5px;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<div class="projects-container" data-layout="column">
+    <md-radio-group ng-model="Projects.selected.theme"  ng-change="Projects.selectedItem = undefined; Projects.searchText = ''" data-layout="row" data-layout-align="space-around">
+        <md-radio-button value="projects">
+            Project name
+        </md-radio-button>
+        <md-radio-button value="calls">
+            Call for projects
+        </md-radio-button>
+    </md-radio-group>
+    <md-autocomplete
+            ng-disabled="!Projects.selected"
+            md-input-name="autocompleteProjects"
+            md-selected-item="Projects.selectedItem"
+            md-search-text="Projects.searchText"
+            md-items="item in Projects.querySearch(Projects.searchText)"
+            md-item-text="item.acronym || item.label"
+            md-floating-label="Search">
+      <md-item-template>
+        <span md-highlight-text="Projects.searchText" md-highlight-flags="^i" ng-if="Projects.selected.theme === 'projects'">
+            ({{item.acronym}}) {{item.label}}
+        </span>
+        <span md-highlight-text="Projects.searchText" md-highlight-flags="^i" ng-if="Projects.selected.theme === 'calls'">
+            {{item.label}}
+        </span>
+      </md-item-template>
+    </md-autocomplete>
+    <md-button
+            class="md-raised md-accent"
+            ng-click="Projects.apply({id:Projects.selected.theme, filters:[{value:Projects.selectedItem.id}]})"
+            ng-disabled="!Projects.selectedItem">
+        Apply
+    </md-button>
+</div>

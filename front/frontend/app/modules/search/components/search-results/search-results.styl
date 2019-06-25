@@ -1,0 +1,56 @@
+@require '../../../../assets/variables.styl';
+
+search-results {
+  display: block
+  background-color: white
+  > div {
+    padding: 0 8px;
+  }
+  .results-container {
+    position: relative
+    p {
+      &.results-count {
+        position: absolute
+        top :28px;
+        left: 10px
+        z-index: 1
+        span.count {
+          color: color-primary
+        }
+      }
+      &.view-selector {
+        min-width: 296px
+      }
+      md-tabs {
+        padding: 5px
+        .md-tab.md-active{
+          color: color-primary
+        }
+        md-tabs-wrapper {
+          margin-bottom: 20px;
+          md-pagination-wrapper {
+            right: 0
+            left: auto;
+          }
+        }
+        md-ink-bar {
+          background-color: color-primary
+        }
+        md-tab-content{
+          overflow: visible
+          md-content{
+            overflow: visible
+            .muir-map {
+              width: 100%;
+              height: 800px;
+              border: 1px solid lightgray;
+            }
+          }
+        }
+      }
+    }
+    result{
+      margin-right: 1px;
+    }
+  }
+}

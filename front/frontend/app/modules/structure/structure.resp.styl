@@ -1,0 +1,54 @@
+@media (max-width: 1280px) {
+  .structure{
+    projects, publications, thesis, patents {
+      md-virtual-repeat-container, .revues{
+        width: 290px;
+      }
+    }
+  }
+}
+@media (max-width: 959px) {
+  .structure{
+    .top-banner{
+      padding: 0;
+      height: auto;
+      > md-card{
+        margin: 0
+        padding: 20px
+      }
+    }
+    > .layout-padding{
+      padding: 0
+    }
+    .struct-content{
+      margin-top: 5px;
+      padding: 0
+      .struct-card{
+        padding: 50px 20px;
+      }
+    }
+    .edition-button{
+      bottom: 40px;
+      z-index: 99999;
+      left:10px;
+      top: auto;
+      .edition-button-label {
+        background-color: #eee;
+      }
+    }
+    projects, publications, thesis, patents {
+      .selected-project, .selected-publication, .selected-thesis, .selected-thesis, .selected-patent{
+        display: none
+      }
+      md-virtual-repeat-container, .revues{
+        width:100%;
+      }
+      .web-detected{
+        word-break: break-all;
+      }
+    }
+      h2::before{
+        left: -25px !important
+      }
+  }
+}

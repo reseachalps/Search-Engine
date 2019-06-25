@@ -1,0 +1,135 @@
+<div>
+    <div data-layout="column">
+        <h2>
+            {{graphData.length}} link{{graphData.length > 1 ? 's' : ''}} with other organisations
+            <i class="fa fa-info-circle small-text">
+                <md-tooltip md-direction="right">
+                   Graph limited to the 7 closest organisations
+                </md-tooltip>
+            </i>
+        </h2>
+    </div>
+    <div data-layout-gt-md="row" data-layout-align="start stretch" data-layout="column">
+        <div ng-show="selectedView === 'graph'" data-layout="column">
+            <md-radio-group ng-model="selectedType" ng-change="changeType()" aria-label="Type selector" data-layout="row" data-layout-padding>
+                <md-radio-button value="all">All types</md-radio-button>
+                <md-radio-button value="true" ng-disabled="!hasPublic">Public organisations</md-radio-button>
+                <md-radio-button value="false" ng-disabled="!hasPrivate">Private organisations</md-radio-button>
+                <md-radio-button value="unknown" ng-disabled="!hasPrivate">Not available</md-radio-button>
+            </md-radio-group>
+            <div class="graph-details">
+                <p>
+                    <b>Click on a circle to display the details</b>
+                    <br>
+                    <small>(Double-click to acces directly the organization page)</small>
+                </p>
+                <md-divider></md-divider>
+                <div class="selected-node" ng-if="selectedNode">
+                    <div ng-if="selectedNode.index !== 0">
+                        <p>
+                            <a ui-sref="structure({id:selectedNode.id})" ng-class="selectedNode.isPublic === null ? 'unknown' : (selectedNode.isPublic ? 'public' : 'private')">
+                                <struct-label struct="selectedNode"></struct-label>
+                            </a>
+                        </p>
+                        <p ng-repeat="(key, value) in selectedNode.details">
+
+                            This&nbsp;organization
+                            <span ng-if="key === 'PROJECT'">
+                                work at least on <strong>{{value}} project<span ng-if="value > 1">s</span></strong> with {{structure.label}}.
+                            </span>
+                            <span ng-if="key === 'CHILD'">
+                                is a <strong> institutions</strong> of {{structure.label}}.
+                            </span>
+                            <span ng-if="key === 'PARENT'">
+                                is a <strong>children organization</strong> of {{structure.label}}.
+                            </span>
+                            <span ng-if="key === 'RELATION'">
+                                share a <strong>extern relationship</strong> with {{structure.label}}.
+                            </span>
+                            <span ng-if="key === 'PUBLICATION'">
+                                has published at least <strong>{{value}} publication<span ng-if="value > 1">s</span></strong> with {{structure.label}}.
+                            </span>
+                            <span ng-if="key === 'THESIS'">
+                                has supervised at least<strong>{{value}} thesis<span ng-if="value > 1">s</span></strong> with {{structure.label}}.
+                            </span>
+                            <span ng-if="key === 'PATENT'">
+                                has published at least <strong>{{value}} patent<span ng-if="value > 1">s</span></strong> with {{structure.label}}.
+                            </span>
+                            <span ng-if="key === 'SPINOFF'">
+                                is a <strong>spinoff</strong> of the laboratory {{structure.label}}.
+                            </span>
+                        </p>
+                    </div>
+                    <div ng-if="selectedNode.index === 0" class="own-struct">
+                        <p>
+                            <struct-label struct="selectedNode"></struct-label>
+                        </p>
+                        <p>
+                            This organization
+                            has <b>{{nbPublic}}</b> relationship with public research structure<span ng-if="nbPublic > 1">s</span> and
+                            <b>{{nbPrivate}}</b> with <span ng-if="nbPrivate > 1">companies</span><span ng-if="nbPrivate <= 1">company</span>.
+                        </p>
+                    </div>
+                </div>
+                <div ng-show="selectedView === 'graph'" class="graph-legend">
+                    <p class="legend-color current">{{structure.label.length > 45 ? structure.label.substring(0,45) + '...' : structure.label}}</p>
+                    <p class="legend-color private">Companies linked with the organization</p>
+                    <p class="legend-color public">Public organisations linked with the structure</p>
+                </div>
+            </div>
+        </div>
+        <div flex data-layout="column" data-layout-align="stretch center">
+            <div class="view-selector" data-layout="row" data-layout-align="end">
+                <md-button class="md-raised" ng-class="{'md-primary':selectedView === 'list'}" ng-click="selectedView = 'list'">List view</md-button>
+                <md-button class="md-raised" ng-class="{'md-primary':selectedView === 'graph'}" ng-click="selectedView = 'graph'">Graphic view</md-button>
+            </div>
+            <div class="graph-container" ng-show="selectedView === 'graph'"></div>
+            <div ng-if="selectedView === 'list'" class="list-view">
+            <table>
+                <thead>
+                <tr>
+                    <th>Organisation Name</th>
+                    <th>Type</th>
+                    <th>Projects</th>
+                    <th>Publications</th>
+                    <th>Misc.</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="structure in graphData">
+                    <td class="structure-label">
+                        <a ui-sref="structure({id:structure.structure.id})"
+                           ng-class="structure.structure.isPublic === null ? 'unknown' : (structure.structure.isPublic ? 'public' : 'private')">
+                            <struct-label struct="structure.structure"></struct-label>
+                        </a>
+                    </td>
+                    <td>
+                    <span ng-if="structure.structure.isPublic">
+                        Public
+                    </span>
+                        <span ng-if="structure.structure.isPublic === false">
+                        Private
+                    </span>
+                        <span ng-if="structure.structure.isPublic === null">
+                        Not available
+                    </span>
+                    </td>
+                    <td>
+                        <b>{{ (structure.details.PROJECT || 0) | number}}</b>
+                    </td>
+                    <td>
+                        <b>{{ (structure.details.PUBLICATION || 0) | number}}</b>
+                    </td>
+                    <td>
+                        <div class="misc" ng-if="structure.details.CHILD">parent organisation</div>
+                        <div class="misc" ng-if="structure.details.PARENT">child organisation</div>
+                        <div class="misc" ng-if="structure.details.SPINOFF">spinoff</div>
+                        <div class="misc" ng-if="structure.details.RELATION">shares external relations</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+                </div>
+        </div>
+    </div>
+</div>

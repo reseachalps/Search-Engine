@@ -1,0 +1,72 @@
+@require '../../../../assets/variables.styl';
+
+search-filters {
+  .title {
+    padding-top: 10px;
+  }
+  md-menu {
+    i.fa {
+      transition: 0.3s;
+    }
+    &.md-open {
+      i.fa {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
+
+// style for checkboxes filters
+md-menu-content {
+  .checkbox-container {
+    position: relative
+    md-input-container {
+      margin: 0
+    }
+    .reset {
+      position: absolute
+      right: 20px
+      top: 10px
+      color: color-secondary
+      font-size: smaller
+      z-index: 5
+      &:focus {
+        outline: 0
+      }
+    }
+    .checkboxes {
+      md-virtual-repeat-container {
+        height: 300px
+        width: 400px
+        md-checkbox {
+          display: block
+          .checkbox-label {
+            display: inline-block;
+            width: 180px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-right: 20px;
+          }
+          &:hover {
+            .count-bar {
+              background-color: color-primary
+            }
+            .count-value:not(.too-big):not(.empty) {
+              color: white
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.md-autocomplete-suggestions li {
+  overflow: visible;
+  white-space: normal;
+  text-overflow: initial;
+  line-height: normal;
+  height: auto;
+  padding: 15px
+}

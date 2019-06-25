@@ -1,0 +1,28 @@
+<md-dialog aria-label="Partager cette page" ng-cloak class="simple-dialog share-dialog">
+    <form name="editingForm">
+        <md-toolbar>
+            <div class="md-toolbar-tools" data-layout="row">
+                <h2>Share this page</h2>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="socials" data-layout="column">
+                <a class="twitter" target="_blank" href="https://twitter.com/intent/tweet?text={{og.title}}&amp;url={{og.url}}&amp;related=re_alps&amp;hashtags=researchalps">
+                    Twitter
+                </a>
+                <a class="facebook" target="_blank" href="http://www.facebook.com/sharer.php?u={{og.url}}&amp;t={{og.title}}">
+                    Facebook
+                </a>
+                <a class="google" target="_blank" href="https://plus.google.com/share?url={{og.url}}">
+                    Google +
+                </a>
+                <a class="linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{og.url}}&amp;title={{og.title}}">
+                    Linkedin
+                </a>
+                <a class="mail" href="mailto:?subject={{og.title}}&amp;body='Research Alps file: {{ og.title }} {{og.url}}'">
+                    Mail
+                </a>
+            </div>
+        </md-dialog-content>
+    </form>
+</md-dialog>

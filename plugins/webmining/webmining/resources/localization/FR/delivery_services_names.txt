@@ -1,0 +1,21 @@
+2,PostNL
+3,UPS
+4,TNT
+5,DHL
+6,FedEx
+7,Bpack
+8,Colissimo
+9,Chronopost
+10,Kiala
+11,Bpost
+12,Mondial Relay
+13,DPD
+14,Day by Day
+15,GLS
+16,Kariboo
+17,trans-o-flex
+18,PostNL Pharma
+19,Ciblex
+20,Relais Colis
+21,Taxipost
+22,Ici Relais

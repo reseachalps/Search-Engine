@@ -1,0 +1,62 @@
+@require '../../../../assets/variables.styl'
+
+projects {
+  md-autocomplete {
+    margin-bottom: 15px
+  }
+  .count {
+    font-size: small;
+    color: grey;
+  }
+  md-virtual-repeat-container {
+    height: 500px
+    width: 400px
+    border: 1px solid lightgrey
+    .header {
+      background-color: color-primary
+      color: white
+      text-align: center
+      padding: 10px
+    }
+    .project {
+      border-bottom: 1px solid lightgray
+      color: grey
+      cursor: pointer
+      padding: 10px 20px
+      position: relative
+      &.selected, &:hover {
+        background-color: #F0FAFF
+      }
+    }
+  }
+  .selected-project {
+    padding: 0 20px
+    h3 {
+      margin: 0
+    }
+    h4 {
+      margin-bottom: 0
+    }
+    p {
+      &.subtitle {
+        margin-top: 0
+        margin-bottom: 20px
+        font-size: small
+        color: grey
+      }
+      &.description {
+        color: #555
+      }
+    }
+    a {
+      color: color-primary
+    }
+  }
+  .web-detected {
+    padding: 10px 0
+    a{
+      color: color-primary;
+      font-size: 90%
+    }
+  }
+}

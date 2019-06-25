@@ -1,0 +1,189 @@
+@require './variables.styl';
+
+.primary
+  color: color-primary
+.secondary
+  color: color-secondary
+.bg-primary
+  background-color: #fdfdfd;
+
+.grey
+  color: grey
+  
+h1, h2, h3, h4
+  @extend .primary
+
+p
+  margin: 10px 0;
+
+.small-text{
+  font-size:90%;
+}
+
+.align-center{
+  text-align: center
+}
+
+h2, h3{
+  i.fa{
+    font-size: initial
+  }
+}
+
+[ng-click]{
+  cursor: pointer
+  &:focus{
+    outline:0;
+  }
+}
+
+.cookie-disclaimer{
+  display: none
+  padding-left: 20px
+  background-color: #313138
+  color: white
+  &.app-loaded{
+    display: flex
+  }
+  a{
+    color: white
+  }
+  .cookie-notice{
+    padding: 10px 0
+  }
+}
+
+body {
+  div[data-ui-view] {
+    min-height: calc(100% - 38px); // minus footer height
+    &.home {
+      height: 1px // workaround so we can use height :100% in any direct child (see : http://stackoverflow.com/a/21836870/1586077)
+    }
+  }
+  &.home {
+    .footer {
+      position: fixed;
+      bottom: 0;
+    }
+  }
+}
+
+md-menu-content {
+  max-height: none;
+  md-radio-group, .checkbox-container {
+    padding: 20px 20px 5px 20px;
+    box-sizing: content-box;
+  }
+  .md-label{
+      display: block
+  }
+}
+
+.md-virtual-repeat-container.md-autocomplete-suggestions-container{
+  z-index: 1000
+  min-width:500px !important;
+  li .highlight{
+    color: color-secondary
+  }
+}
+
+.main-loading{
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom:0
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index:9999999
+}
+
+paging{
+  display: block
+  text-align: center
+  ul{
+    padding: 0
+    list-style-type none
+    font-size: 15px
+    li{
+      list-style-type: none;
+      display: inline-block;
+      font-size: 1.2rem;
+      line-height: 30px;
+      text-align: center;
+      border-radius 50%
+      margin-right: 2px;
+      a{
+        -webkit-tap-highlight-color: transparent;
+        text-decoration: none
+        color: #888;
+        padding: 0 10px;
+      }
+      &.active, &:hover{
+        background-color: color-secondary
+        a{
+          color: white
+        }
+      }
+      &.disabled{
+        cursor: default
+        a{
+          cursor: default
+          color: #ccc
+        }
+      }
+      &:first-child, &:last-child{
+        &:hover{
+          background-color: transparent
+          a{
+            color: #888
+          }
+        }
+        &.disabled{
+          cursor: not-allowed;
+          a{
+            cursor: not-allowed;
+          }
+        }
+        font-weight:bold;
+        margin:0 10px
+      }
+    }
+  }
+}
+
+.md-dialog-container, md-backdrop.md-dialog-backdrop{
+  z-index:50000000
+}
+md-dialog{
+  max-width:40%
+  min-width: 650px;
+  md-toolbar{
+    h2{
+      color: white
+    }
+  }
+  textarea{
+    width:100%
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .captcha-container{
+    margin-top: 20px
+  }
+  md-dialog-actions{
+    .btn-confirm{
+      margin-right: 15px
+    }
+  }
+}
+
+md-tooltip{
+  .md-content {
+    opacity: 1
+    background-color: dimgrey
+    height: auto;
+    ul{
+      padding-left: 20px
+    }
+  }
+}

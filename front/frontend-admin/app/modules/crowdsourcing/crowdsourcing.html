@@ -1,0 +1,59 @@
+<div class="crowdsourcing-container" data-layout="row">
+    <div flex>
+        <div>
+            <div class="page-header">
+                <h1>Crowdsourcing</h1>
+            </div>
+            <div data-layout="row" data-layout-align="space-between center">
+                <p data-layout="row" data-layout-align="start center" data-layout-padding>
+                    <b>Status :</b>
+                    <md-input-container>
+                        <md-select ng-model="Crowd.selectedStatus" ng-change="Crowd.changeStatus()">
+                            <md-option value="ALL">
+                                ALL
+                            </md-option>
+                            <md-option value="SUBMITTED">
+                                SUBMITTED
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </p>
+                <div data-layout="row" data-layout-align="start center" data-layout-padding>
+                    <b>Structure correction:</b>
+                    <md-input-container md-no-float class="md-block">
+                        <input type="text" ng-model="Crowd.structureId" placeholder="Structure ID">
+                    </md-input-container>
+                    <md-button ng-disable="Crowd.loading" class="md-primary" ui-sref="main.correction({ id: Crowd.structureId })" ng-click="Crowd.loading=true">
+                        Go
+                    </md-button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <md-card ng-repeat="feedback in Crowd.feedbacks | orderBy:'-createdDate'" class="feedback"
+                     data-layout="column" data-layout-padding
+                     ng-hide="Crowd.selectedStatus === 'SUBMITTED' && feedback.status === 'VALIDATED'">
+                <h4>
+                    <span class="submitted">SUBMITTED <small>on the {{feedback.createdDate | date:'d MMM yyyy, HH:mm'}} by {{feedback.userName}} ({{feedback.email}})</small></span>
+                    <span ng-if="feedback.status !== 'SUBMITTED'">
+                        - <span class="validated">VALIDATED <small>on the {{feedback.lastUpdated | date}}</small></span>
+                    </span>
+                </h4>
+                <div data-layout="row" data-layout-padding>
+                    <div><b>Structure :</b> <a target="_blank"
+                                               href="https://scanr.enseignementsup-recherche.gouv.fr/structure/{{feedback.structure}}">{{feedback.structure}}</a>
+                        <a href="/#/correction/{{feedback.structure}}">
+                            <md-icon md-font-icon="fa-edit" class="fa"></md-icon>
+                        </a>
+                    </div>
+                    <div><b>Field :</b> {{feedback.field}}</div>
+                    <div><b>Action :</b> {{feedback.action}}</div>
+                    <div><b>Comment :</b> {{feedback.comment}}</div>
+                </div>
+                <md-button class="md-raised md-primary" ng-click="Crowd.validate(feedback)"
+                           ng-if="feedback.status === 'SUBMITTED'">Validate
+                </md-button>
+            </md-card>
+        </div>
+    </div>
+</div>

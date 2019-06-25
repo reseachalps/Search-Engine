@@ -1,0 +1,30 @@
+Exemples négatifs
+    placeholder = "password"
+    3 champs input
+    http://www.supmicro.com/Pages/default.aspx  plusieurs champs input, form aspnet
+    http://www.lespattesvertes.com/newsletter.php   newsletter
+    http://www.agencestudioj.com/   pas de form ???
+    name="username" / "login"
+    form caché (tous les input en hidden)
+    form pour la recherche d'informations, termes "search", "recherche"
+    form avec des input normaux et des inputs cachés (newsletter), présence de termes du type mailing, texte Newsletter dans le HTML sous le form
+    form pour un cart
+    création de compte avec raison sociale, etc (présente du mot compte, enregistrement)
+    FAQ
+    Difficile : page de contact structurée dans un form
+    commentaires
+    devis (assez difficile), présence des termes "tarifs", "comparez"
+    "Posez une question"
+    Promotions (http://www.ecotel.fr/speciales-web.html)
+    Livre d'or (http://www.roussi.fr/ajoutmessage.html)
+
+Exemples positifs
+    présence du terme contact dans l'URL ou le titre ou près de la balise form
+    formulaire de demande de devis
+    présence des termes "email", "name" ; balise textarea proche (http://www.somedex.org/?page_id=45)
+    terme "contact" dans la balise title ou h1
+    présence d'un captcha
+    devis, demande de documentation, de renseignements
+
+Questions :
+    - pages avec un formulaire caché qui peut apparaître (ex : http://www.somedex.org/?page_id=34)

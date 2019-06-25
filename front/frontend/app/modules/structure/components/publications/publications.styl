@@ -1,0 +1,99 @@
+@require '../../../../assets/variables.styl'
+
+publications {
+  md-autocomplete {
+    margin-bottom: 15px
+  }
+  .count {
+    font-size: small;
+    color: grey;
+  }
+  md-virtual-repeat-container.publication-vrepeat {
+    height: 400px
+    width: 400px
+    border: 1px solid lightgrey
+    .header {
+      background-color: color-primary
+      color: white
+      text-align: center
+      padding: 10px
+    }
+    .publication {
+      border-bottom: 1px solid lightgray
+      color: grey
+      cursor: pointer
+      padding: 20px
+      &.selected, &:hover {
+        background-color: #F0FAFF
+      }
+      .publi-meta {
+        margin-top: 10px
+      }
+    }
+  }
+  .revues {
+    ul{
+      max-height: 210px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    .more-revues {
+      margin-left: 20px
+      &:hover >b {
+        text-decoration: underline
+      }
+    }
+  }
+  .selected-publication {
+    padding: 0 20px
+    h3 {
+      margin: 0
+    }
+    h4 {
+      margin-bottom: 0
+    }
+    p {
+      &.subtitle {
+        margin-top: 0
+        margin-bottom: 20px
+        font-size: small
+        color: grey
+      }
+      &.description {
+        color: #555
+      }
+    }
+    a {
+      color: color-primary
+      &.author{
+        color: black
+        text-decoration: none
+        &:hover{
+          text-decoration: underline
+        }
+      }
+    }
+  }
+  .web-detected{
+    .web-publi{
+      p{
+        border-bottom: 1px solid lightgrey
+        padding-bottom: 10px
+        padding-left:10px;
+      }
+      &.scrolling{
+        border: 1px solid lightgrey;
+      }
+      a{
+        color: color-primary
+        &.author{
+          color: black
+          text-decoration: none
+          &:hover{
+            text-decoration: underline
+          }
+        }
+      }
+    }
+  }
+}

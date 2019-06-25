@@ -1,0 +1,3 @@
+company (?:no|number):? *(\d{7,8}|\w{2}\d{6})
+registered in england no\.? *(\d{7,8}|\w{2}\d{6})
+company registration no\.? *(\d{7,8}|\w{2}\d{6})

@@ -1,0 +1,42 @@
+<div class="geo-filter-container" data-layout="column">
+    <md-radio-group ng-model="Geo.selected.theme"  ng-change="Geo.selectedItem = undefined; Geo.searchText = ''; Geo.search = ''" data-layout="row" data-layout-align="space-around">
+        <md-radio-button value="urbanUnit">
+            Urban areas
+        </md-radio-button>
+        <md-radio-button value="departements">
+            Department
+        </md-radio-button>
+    </md-radio-group>
+    <div class="checkbox-container" layout="column" layout-align="start stretch">
+        <div class="reset" ng-click="Geo.clearSelection($event)" md-prevent-menu-close>Reset the selection</div>
+        <md-input-container>
+            <label>Search</label>
+            <input ng-model="Geo.search" autocomplete="off">
+        </md-input-container>
+        <div class="checkboxes" ng-if="Geo.urbanValues.length > 0 && Geo.selected.theme === 'urbanUnit'">
+            <md-virtual-repeat-container>
+                <div md-virtual-repeat="value in Geo.urbanValues | filter:Geo.search | orderBy:'-count'">
+                    <md-checkbox ng-model="value.selected" aria-label="Unité urbaine {{value.value}}">
+                        <div data-layout="row" data-layout-align="start center">
+                            <span class="checkbox-label" title="{{value.label}}">{{value.label}}</span>
+                            <count-bar max-value="Geo.maxUrbanValue" count="value.count" flex></count-bar>
+                        </div>
+                    </md-checkbox>
+                </div>
+            </md-virtual-repeat-container>
+        </div>
+        <div class="checkboxes" ng-if="Geo.dptsValues.length > 0 && Geo.selected.theme === 'departements'">
+            <md-virtual-repeat-container>
+                <div md-virtual-repeat="value in Geo.dptsValues | filter:Geo.search | orderBy:'-count'">
+                    <md-checkbox ng-model="value.selected" aria-label="Département {{value.label}}">
+                        <div data-layout="row" data-layout-align="start center">
+                            <span class="checkbox-label" title="{{value.label}} ({{value.value}})">{{value.label}} ({{value.value}})</span>
+                            <count-bar max-value="Geo.maxDptsValue" count="value.count" flex></count-bar>
+                        </div>
+                    </md-checkbox>
+                </div>
+            </md-virtual-repeat-container>
+        </div>
+    </div>
+<md-button class="md-raised md-accent" ng-click="Geo.applySelection()" ng-disabled="!Geo.selected">Apply</md-button>
+</div>

@@ -1,0 +1,71 @@
+<md-divider></md-divider>
+<div data-layout="row" data-layout-wrap data-layout-padding data-layout-xs="column">
+    <div flex-gt-md="20">
+        <h3 class="chart-title">
+            Organization type
+            <i class="fa fa-info-circle">
+                <md-tooltip md-direction="top">
+                    The public sector includes:
+                    <ul>
+                        <li>the public research organizations</li>
+                        <li>the state institute</li>
+                        <li>the public companies</li>
+                        <li>the nonprofit institute</li>
+                    </ul>
+                </md-tooltip>
+            </i>
+        </h3>
+        <nvd3 class="clickable" options="Firmography.typeChartsOptions" data="Firmography.kindChart"></nvd3>
+    </div>
+    <div flex-gt-md="40" flex-gt-sm="50">
+        <h3 class="chart-title">Countries</h3>
+        <nvd3 class="clickable" options="Firmography.countriesChartsOptions" data="Firmography.countriesChart"></nvd3>
+    </div>
+    <div flex-gt-md="40" flex-gt-sm="50">
+        <h3 class="chart-title">
+            Top NUTS 2 regions
+        </h3>
+        <nvd3 class="clickable" options="Firmography.nutsChartsOptions" data="Firmography.nutsChart"></nvd3>
+    </div>
+</div>
+<div data-layout="row" data-layout-wrap data-layout-padding data-layout-xs="column" data-layout-sm="column">
+    <div data-flex-md="100" data-flex-gt-md="50" class="primary tag-cloud" data-layout="column" data-layout-padding data-layout-align="start stretch">
+        <h3 class="align-center">
+            Keywords
+            <i class="fa fa-info-circle">
+                <md-tooltip md-direction="top">
+                    Source: Extracted from the web site and from projects and scientific production summaries
+                </md-tooltip>
+            </i>
+        </h3>
+        <tag-cloud words="Firmography.tagCloudWords" ng-if="!Firmography.keywordsLoading" show-title="false" data-layout="row" data-layout-align="center"></tag-cloud>
+        <div data-layout="row" data-layout-align="center" ng-if="Firmography.keywordsLoading">
+            <md-progress-circular md-mode="indeterminate" md-diameter="64" class="md-accent"></md-progress-circular>
+        </div>
+    </div>
+    <div data-flex-md="100" data-flex-gt-md="50" data-layout="row" data-layout-wrap data-layout-padding data-layout-xs="column" data-layout-sm="column">
+        <div flex-gt-sm="50">
+            <h3 class="chart-title">Publications</h3>
+            <div class="chart-subtitle">({{ Firmography.publicationsPercent  | number:0 }}% available)</div>
+            <nvd3 options="Firmography.publicationsChartsOptions" data="Firmography.publicationsChart"></nvd3>
+        </div>
+
+        <div flex-gt-sm="50">
+            <h3 class="chart-title">Projects</h3>
+            <div class="chart-subtitle">({{ Firmography.projectsPercent  | number:0 }}% available)</div>
+            <nvd3 options="Firmography.projectsChartsOptions" data="Firmography.projectsChart"></nvd3>
+        </div>
+
+        <div flex-gt-sm="50">
+            <h3 class="chart-title">Network Connections</h3>
+            <div class="chart-subtitle">({{ Firmography.connectionsPercent | number:0 }}% available)</div>
+            <nvd3 options="Firmography.connectionsChartsOptions" data="Firmography.connectionsChart"></nvd3>
+        </div>
+
+        <div flex-gt-sm="50">
+            <h3 class="chart-title">Staff</h3>
+            <div class="chart-subtitle">({{ Firmography.leadersPercent  | number:0 }}% available)</div>
+            <nvd3 options="Firmography.leadersChartsOptions" data="Firmography.leadersChart"></nvd3>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+@require './../../assets/variables.styl';
+
+share-button{
+  .share {
+    position: absolute;
+    overflow: hidden;
+    height: 300px;
+    right: 20px;
+    top: 20px
+    z-index: 1
+    padding-top: 0
+    .touch-share{
+      display: none
+    }
+    button{
+      margin: 0
+    }
+    .socials {
+      position: absolute
+      right: 10px;
+      text-align: center;
+      transition: top 0.5s ease-in-out
+      z-index: -1
+      &.shown {
+        top: 65px
+      }
+      &.hidden {
+        top: -160px
+      }
+      img {
+        width: 20px
+        margin-bottom: 5px
+      }
+      i.fa {
+        color: black
+        margin-bottom: 10px
+        font-size: 1.5em
+        &.fa-google-plus {
+          font-size: 1.3em;
+        }
+      }
+      a{
+        text-decoration: none
+      }
+    }
+  }
+}

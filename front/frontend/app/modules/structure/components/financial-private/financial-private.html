@@ -1,0 +1,18 @@
+<div data-layout-gt-sm="row" data-layout-align-gt-sm="space-between center" data-layout="column" data-layout-align="start">
+    <h2 class="no-border">
+        Staff and financial figures
+    </h2>
+    <div data-layout="row" data-layout-align="start end">
+        <b>Last published financial results :</b>&nbsp;<h3 class="year">{{Financial.financial.date | date:'yyyy'}}</h3>
+    </div>
+</div>
+<div>
+    <div data-layout-gt-sm="row" data-layout="column" class="financial-data">
+        <p ng-if="Financial.financial.employes" data-layout="row" data-layout-align="start center" flex>
+            <i class="fa fa-group fa-fw fa-3x"></i>&nbsp;<span>{{Financial.financial.employes}}</span>
+        </p>
+        <p ng-if="Financial.financial.revenueRange" data-layout="row" data-layout-align="start center" flex>
+            <i class="fa fa-line-chart fa-fw fa-3x"></i>&nbsp;<span>{{Financial.financial.revenueRange}}</span>
+        </p>
+    </div>
+</div>

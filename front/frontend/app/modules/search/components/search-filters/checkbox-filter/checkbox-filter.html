@@ -1,0 +1,20 @@
+<div class="checkbox-container" layout="column" layout-align="start stretch">
+    <div class="reset" ng-click="Checkbox.clearSelection($event)" md-prevent-menu-close>Reset the selection</div>
+    <md-input-container>
+        <label>Search</label>
+        <input ng-model="Checkbox.search" autocomplete="off">
+    </md-input-container>
+    <div class="checkboxes" ng-if="Checkbox.values.length > 0">
+        <md-virtual-repeat-container>
+            <div md-virtual-repeat="value in Checkbox.values | filter:Checkbox.search | orderBy:'-count'">
+                <md-checkbox ng-model="value.selected" aria-label="{{value.value}} filtre">
+                    <div data-layout="row" data-layout-align="start center">
+                        <span class="checkbox-label" title="{{value.label}}">{{value.label}}</span>
+                        <count-bar max-value="Checkbox.maxValue" count="value.count" flex></count-bar>
+                    </div>
+                </md-checkbox>
+            </div>
+        </md-virtual-repeat-container>
+    </div>
+</div>
+<md-button class="md-raised md-accent" ng-click="Checkbox.applySelection()" ng-disabled="!Checkbox.selected">Apply</md-button>

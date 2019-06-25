@@ -1,0 +1,49 @@
+<!---->
+<div layout="row" data-layout-align="center" data-layout-wrap class="structure">
+    <div class="edition-button" ng-hide="true">
+        <md-button class="" aria-label="Contribute" ng-hide="Structure.allowEditing">
+            <i class="fa fa-2x fa-pencil-square-o"></i>
+        </md-button>
+    </div>
+    <div class="edition-button" ng-click="Structure.allowEditing = !Structure.allowEditing">
+        <md-button class="md-fab md-warn edition edit" aria-label="Contribute" ng-hide="Structure.allowEditing">
+            <i class="fa fa-2x fa-pencil-square-o"></i>
+        </md-button>
+        <md-button class="md-fab md-warn edition confirm" aria-label="I'm done" ng-hide="!Structure.allowEditing">
+            <i class="fa fa-check fa-2x"></i>
+        </md-button>
+        <div class="edition-button-label">
+            <span ng-show="!Structure.allowEditing">Contribute</span>
+            <span ng-show="Structure.allowEditing">I'm done</span>
+        </div>
+    </div>
+    <div class="top-banner" data-layout-padding layout="row" data-layout-align="center" flex="100">
+        <div flex hide-sm hide-xs></div>
+        <md-card flex="80" flex-sm="100" flex-xs="100" data-layout-gt-xs="row" class="md-whiteframe-8dp" data-layout="column">
+            <div class="logo-container" data-layout="row" data-layout-align="space-around">
+                <a ui-sref="home" class="research-alps-logo-container">
+                    <img src="app/assets/img/ReSearchAlpsLogo.png" alt="Logo ResearchAlps">
+                    <span class="beta">BETA</span>
+                </a>
+            </div>
+            <div flex>
+                <search-bar></search-bar>
+            </div>
+        </md-card>
+        <div flex hide-sm hide-xs>
+            <share-button></share-button>
+        </div>
+    </div>
+    <div flex="100" layout="row" data-layout-align="center">
+        <div flex="80" flex-sm="100" flex-xs="100" data-layout-padding class="struct-content" data-layout="column" data-layout-align="stretch">
+            <identity class="struct-card md-whiteframe-6dp" structure="Structure.structure" keywords="Structure.keywords" surroundings="Structure.surroundings" allow-editing="Structure.allowEditing"></identity>
+            <sources ng-if="Structure.structure.structure.sources.length > 0" class="struct-card md-whiteframe-6dp" sources="Structure.structure.structure.sources" identifiers="Structure.structure.structure.identifiers" allow-editing="Structure.allowEditing"></sources>
+            <relations-graph hide-sm hide-xs class="struct-card md-whiteframe-6dp" graph-data="Structure.structure.graph" structure="Structure.structure.structure" ng-if="Structure.structure.graph.length" allow-editing="Structure.allowEditing"></relations-graph>
+            <projects class="struct-card md-whiteframe-6dp" structure="Structure.structure" web-projects="Structure.structure.detectedProjects" projects="Structure.structure.projects" ng-if="(Structure.structure.projects.length || Structure.structure.detectedProjects.length) || Structure.allowEditing" allow-editing="Structure.allowEditing"></projects>
+            <publications class="struct-card md-whiteframe-6dp" structure="Structure.structure" web-publications="Structure.structure.detectedPublicationList" publications="Structure.structure.publicationList" ng-if="(Structure.structure.publicationList.length || Structure.structure.detectedPublicationList.length) || Structure.allowEditing" allow-editing="Structure.allowEditing"></publications>
+            <thesis class="struct-card md-whiteframe-6dp" structure="Structure.structure" web-thesis="Structure.structure.detectedThesisList" thesis="Structure.structure.thesisList" ng-if="(Structure.structure.thesisList.length || Structure.structure.detectedThesisList.length) || Structure.allowEditing" allow-editing="Structure.allowEditing"></thesis>
+            <patents class="struct-card md-whiteframe-6dp" structure="Structure.structure" web-patents="Structure.structure.detectedPatentList" patents="Structure.structure.patentList" ng-if="(Structure.structure.patentList.length || Structure.structure.detectedPatentList.length) || Structure.allowEditing" allow-editing="Structure.allowEditing"></patents>
+            <spinoffs class="struct-card md-whiteframe-6dp" structure="Structure.structure" spinoffs="Structure.structure.structure.spinoffs" spinoff-from="Structure.structure.structure.spinoffFrom" ng-if="Structure.structure.structure.kind === 'RNSR' || Structure.structure.structure.spinoffFrom.length > 0 || Structure.allowEditing" allow-editing="Structure.allowEditing"></spinoffs>
+        </div>
+    </div>
+</div>

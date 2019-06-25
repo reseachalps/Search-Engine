@@ -1,0 +1,8 @@
+<a ui-sref="structure({id:Relative.data.id})">
+    <div class="relative">
+        <div class="relative-logo"><img ng-src="{{Relative.data.logo || 'api/structures/'+Relative.data.id+'/screenshot'}}" alt="{{Relative.data.label}}"></div>
+        <div class="relative-content">
+            <struct-label struct="Relative.data"></struct-label>
+        </div>
+    </div>
+</a>

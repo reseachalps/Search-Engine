@@ -1,0 +1,79 @@
+@require '../../assets/variables.styl'
+
+top-banner-height = 242
+
+.search
+  h1
+    color: #29b6f6
+  md-divider{
+    border-color: color-primary
+  }
+  .top-banner{
+    padding-bottom: 100px;
+    > md-card{
+      padding:0 40px 0 20px
+    }
+  }
+  .export-button {
+      position: absolute
+      left: 20px
+      top: 20px
+      button {
+        padding-top: 3px;
+      }
+      .md-fab.export {
+        transition: 0.1s ease-in-out;
+        i.fa {
+          display: inline-block
+          vertical-align: middle
+        }
+        &.export {
+          transform: rotate(0);
+          &.ng-hide {
+            transform: rotate(-180deg);
+          }
+        }
+      }
+      .export-button-label {
+        background-color: #f6fbff;
+        border-radius: 5px;
+        color: black;
+        font-weight: bold;
+        font-size: 11px;
+        padding: 5px;
+        width: 62px;
+        text-align: center;
+      }
+    }
+  .search-results-container{
+    margin-top: -80px
+    padding: 20px 70px
+    padding-bottom: 75px
+  }
+  .logo-container {
+    text-align: center
+    img {
+      max-height: 80px;
+      max-width: 100%;
+      width: auto
+    }
+    .research-alps-logo-container{
+      position: relative
+      overflow: hidden;
+      height:90px
+      img {
+        max-height: 65px;
+        padding-right:30px;
+        padding-top: 15px
+        padding-bottom: 10px
+      }
+      span{
+        position: absolute
+        color: color-primary
+        font-weight: bold
+        font-size: 10px
+        bottom: 20px;
+        right: 30px;
+      }
+    }
+  }

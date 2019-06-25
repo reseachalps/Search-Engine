@@ -1,0 +1,74 @@
+<div class="result">
+    <div data-layout="row" data-layout-align="top">
+        <div class="result-content" flex>
+            <a ui-sref="structure({id: Result.result.id})">
+                <h3 ng-class="Result.result.publicEntity == 'true' ? 'public' : (Result.result.publicEntity == 'false' ? 'private' : 'unknown')">
+                    <struct-label struct="Result.result"></struct-label>
+                </h3>
+            </a>
+            <div ng-if="Result.result.alias.length > 0">
+                <span ng-click="Result.toggleAlias = !Result.toggleAlias">{{ Result.result.alias.length }} aliases  <i class="fa secondary" ng-class="{'fa-angle-double-down': !Result.toggleAlias, 'fa-angle-double-up': Result.toggleAlias}"></i></span>
+                <div ng-if="Result.toggleAlias">
+                    <h4 ng-repeat="name in Result.result.alias">
+                        {{ name }}
+                    </h4>
+                </div>
+            </div>
+            <div data-layout="row" data-layout-xs="column" data-layout-align="start top" ng-if="Result.idNumbers.length > 0">
+                <b flex="none">
+                    <ng-pluralize count="Result.idNumbers.length" when="{'0': '',
+                    '1': 'Label number:',
+                     'other': 'Label numbers:'}">&nbsp;
+                    </ng-pluralize>
+                </b><span flex><span ng-repeat="tutelle in Result.idNumbers"><span ng-if="!$first">,&nbsp;</span>{{tutelle}}</span></span>
+            </div>
+            <div data-layout="row" data-layout-xs="column" data-layout-align="start center" data-layout-align-xs="start start">
+                <b flex="none">Country:&nbsp;</b>
+                <div flex>{{Result.result.address.country}}</div>
+            </div>
+            <div data-layout="row" data-layout-xs="column" data-layout-align-xs="start start" data-layout-align="start center" ng-if="Result.result.kind === 'RNSR'">
+                <b flex="none">National structure number:&nbsp;</b>
+                <div flex>{{Result.result.id}}</div>
+            </div>
+            <div data-layout="row" data-layout-xs="column" data-layout-align="start top" ng-if="Result.result.address.city || (Result.result.address.postcode && Result.result.address.postcode !== 'NA')">
+                <b flex="none">Location:&nbsp;</b>{{Result.result.address.city | capitalize:true:true}}<span ng-if="Result.result.address.postcode && Result.result.address.postcode !== 'NA'">&nbsp;({{Result.result.address.postcode}})</span>
+            </div>
+            <div data-layout="row" data-layout-xs="column" data-layout-align="start top" ng-if="Result.result.institutions.length > 0">
+                <b flex="none">
+                    <ng-pluralize count="Result.result.institutions.length" when="{'0': '',
+                         '1': ' Institution:',
+                         'other': ' Institutions:'}">
+                    </ng-pluralize>&nbsp;
+                </b>
+                <div flex>
+                    <div ng-repeat="tutelle in Result.result.institutions">
+                        <struct-label struct="tutelle"></struct-label>
+                    </div>
+                </div>
+            </div>
+            <div ng-hide="Result.result.highlights.length === 0 || (Result.result.highlights.length === 1 && Result.result.highlights[0].type === 'alias')" data-layout="row" data-layout-xs="column" data-layout-align="start top">
+                <b flex="none">Found in :</b>
+                <div flex>
+                    <div ng-repeat="highlight in Result.result.highlights" class="highlight" ng-if="highlight.type !== 'alias'">
+                        <small><b>{{highlight.type | highlightLabel}}</b> : <span ng-bind-html="highlight.value"></span></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-layout="column" data-layout-align="start center" class="result-right-part">
+            <div class="result-type">
+                <span ng-class="Result.result.publicEntity == 'true' ? 'public' : (Result.result.publicEntity == 'false' ? 'private' : 'unknown')">{{Result.result.type.label}}</span>
+            </div>
+            <div class="result-logo">
+                <div data-layout="column">
+                    <div data-layout="row" data-layout-align="center center">
+                        <a href="{{ Result.result.mainWebsite }}" alt="{{Relative.data.label}}" ng-if="Result.result.mainWebsite">
+                            <img ng-src="{{Result.result.logo || 'api/structures/'+Result.result.id+'/screenshot'}}" alt="{{Relative.data.label}}">
+                        </a>
+                        <img ng-src="{{Result.result.logo || 'api/structures/'+Result.result.id+'/screenshot'}}" alt="{{Relative.data.label}}" ng-if="!Result.result.mainWebsite">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

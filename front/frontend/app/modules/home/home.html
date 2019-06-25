@@ -1,0 +1,47 @@
+<div class="home-container">
+    <div class="header">
+        <div data-layout="row" data-layout-align="space-between end" data-layout-padding>
+            <share-button></share-button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="home-content" id="corp">
+            <div data-layout="row" data-layout-align="center start">
+                <div class="img-container">
+                    <img src="app/assets/img/ReSearchAlpsLogo.png" id="logo">
+                </div>
+            </div>
+
+            <home-stats stats="Home.stats"></home-stats>
+
+            <form data-layout="row" data-layout-align="center">
+                <div flex="15"></div>
+                <div flex="70">
+                    <div data-layout="row">
+                        <div class="input-group" flex>
+                            <md-autocomplete
+                                    md-search-text="Home.searchText"
+                                    md-items="item in []"
+                                    md-item-text="item.display"
+                                    md-min-length="0"
+                                    placeholder='Ex: biotechnologies, "open government", "Institut Pascal", "UMR 7534", "Projet DYNOTEP" ...'>
+                            </md-autocomplete>
+                        </div>
+                        <a ui-sref="search({query:Home.searchText})">
+                            <md-button type="submit" class="md-raised md-primary">
+                                <span>Search</span>
+                                <i class="fa fa-search fa-fw"></i>
+                            </md-button>
+                        </a>
+                    </div>
+                    <p class="direct-access"><a ui-sref="search">Go directly to the advanced research</a></p>
+                </div>
+                <div flex="15"></div>
+            </form>
+        </div>
+
+        <home-carousel></home-carousel>
+    </div>
+    <footer></footer>
+</div>

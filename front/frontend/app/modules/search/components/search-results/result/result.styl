@@ -1,0 +1,116 @@
+@require '../../../../../assets/variables.styl'
+
+result
+  display: block
+  border: 1px solid lightgrey;
+  margin-bottom: 20px
+  position: relative
+  .result
+    padding: 5px 20px;
+    overflow: visible
+    color: color-primary
+    .result-type{
+      color: white
+      margin-bottom: 10px
+      font-size: small
+      .public{
+        background-color: color-secondary
+        display: inline-block
+        width: 230px
+        text-align: center
+        padding: 3px 0
+        margin-right: -25px
+        word-break: break-all;
+      }
+      .private{
+        background-color: color-private
+        display: inline-block
+        width: 230px
+        text-align: center
+        padding: 3px 0
+        margin-right: -25px
+        word-break: break-all;
+      }
+      .unknown{
+        background-color: color-unknown
+        display: inline-block
+        width: 230px
+        text-align: center
+        padding: 3px 0
+        margin-right: -25px
+        word-break: break-all;
+      }
+    }
+    .result-logo{
+      width: 200px;
+      margin-right: -25px
+      > div > div{
+        //height: 110px;
+        img {
+          max-height: 120px
+          width: auto;
+          max-width: 100%
+        }
+        .address{
+          color: black
+          font-weight: bold
+        }
+      }
+    }
+    .result-content {
+      box-sizing border-box;
+      padding-right: 20px
+      a {
+        display: block
+        text-decoration: none
+        color: color-primary
+        &:hover{
+          text-decoration: underline
+        }
+        h3 {
+          margin: 0
+          &:before {
+            content: '';
+            display: block
+            position: absolute
+            left: -5px
+            top: 4px
+            height: 23px
+            width: 10px
+          }
+          &.public:before {
+            background-color: color-secondary
+          }
+          &.private:before {
+            background-color: color-private
+          }
+          &.unknown:before {
+            background-color: color-unknown
+          }
+        }
+      }
+      h4 {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-style: italic;
+      }
+      p{
+        small, &.highlight{
+          color: black
+        }
+      }
+      .highlight{
+        color: grey
+        strong{
+          color: color-secondary
+        }
+      }
+      > div {
+        margin-top: 5px
+        font-size:90%
+        > b {
+          width: 240px;
+          display: inline-block
+        }
+      }
+    }

@@ -1,0 +1,30 @@
+<div class="share">
+    <div class="desktop-share">
+        <md-button class="md-fab md-primary share-button" aria-label="Partager" ng-click="Share.displayShare = !Share.displayShare" class="share-btn">
+          <md-icon md-svg-src="app/assets/img/social/icon_share.svg"></md-icon>
+        </md-button>
+    </div>
+    <div class="touch-share">
+        <md-button class="md-fab md-primary share-button" aria-label="Partager" ng-click="Share.displayShareModal($event)" class="share-btn">
+          <md-icon md-svg-src="app/assets/img/social/icon_share.svg"></md-icon>
+        </md-button>
+    </div>
+    <div ng-class="{shown:Share.displayShare,hidden:!Share.displayShare}" class="socials">
+
+        <a target="_blank" target="_blank" href="https://twitter.com/intent/tweet?text={{Share.og.title}}&amp;url={{Share.og.url}}&amp;related=re_alps&amp;hashtags=researchalps">
+            <i class="fa fa-twitter"></i>
+        </a>
+        <a target="_blank" target="_blank" href="http://www.facebook.com/sharer.php?u={{Share.og.url}}&amp;t={{Share.og.title}}">
+            <i class="fa fa-fw fa-facebook"></i>
+        </a>
+        <a target="_blank" target="_blank" href="https://plus.google.com/share?url={{Share.og.url}}">
+            <i class="fa fa-fw fa-google-plus"></i>
+        </a>
+        <a target="_blank" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{Share.og.url}}&amp;title={{Share.og.title}}">
+            <i class="fa fa-fw fa-linkedin"></i>
+        </a>
+        <a href="mailto:?subject={{Share.og.title}}&amp;body='Research Alps file: {{ Share.og.title }} {{Share.og.url}}'">
+            <i class="fa fa-fw fa-envelope"></i>
+        </a>
+    </div>
+</div>

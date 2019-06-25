@@ -1,0 +1,26 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <md-button class="md-fab md-mini" aria-label="Home" ng-class="{'md-primary': !Main.$state.includes('main.home') }" ui-sref="main.home">
+            <md-icon md-font-icon="fa-home" class="fa"></md-icon>
+        </md-button>
+        <md-button aria-label="Queues" ng-class="{'md-raised': Main.$state.includes('main.queues') }" ui-sref="main.queues">
+            Queues
+        </md-button>
+        <md-button aria-label="Errors" ng-class="{'md-raised': Main.$state.includes('main.errors') }" ui-sref="main.errors">
+            Errors
+        </md-button>
+        <md-button aria-label="Swagger" ng-class="{'md-raised': Main.$state.includes('main.swagger') }" ui-sref="main.swagger">
+            Swagger
+        </md-button>
+        <md-button aria-label="Crowdsourcing" ng-class="{'md-raised': Main.$state.includes('main.crowdsourcing') }" ui-sref="main.crowdsourcing">
+            Crowdsourcing
+        </md-button>
+        <span flex></span>
+        <h2>
+            <span>ScanR - Admin</span>
+        </h2>
+    </div>
+</md-toolbar>
+<md-content flex class="main-content" ui-view="content">
+    Hallo
+</md-content>

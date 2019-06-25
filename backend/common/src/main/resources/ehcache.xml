@@ -1,0 +1,43 @@
+<ehcache
+        xsi:noNamespaceSchemaLocation="ehcache.xsd"
+        updateCheck="true"
+        monitoring="autodetect"
+        dynamicConfig="true"
+        maxBytesLocalHeap="250M">
+    <defaultCache
+            eternal="false"
+            maxElementsInMemory="100"
+            overflowToDisk="false"/>
+    <cache name="searchCache"
+           eternal="false"
+           timeToIdleSeconds="600"
+           maxBytesLocalHeap="100M"
+           timeToLiveSeconds="600"
+           overflowToDisk="false"
+           diskPersistent="false"
+           memoryStoreEvictionPolicy="LRU"/>
+    <cache name="searchNearCache"
+           eternal="false"
+           timeToIdleSeconds="600"
+           maxBytesLocalHeap="30M"
+           timeToLiveSeconds="600"
+           overflowToDisk="false"
+           diskPersistent="false"
+           memoryStoreEvictionPolicy="LRU"/>
+    <cache name="searchGeoCache"
+           eternal="false"
+           timeToIdleSeconds="600"
+           maxBytesLocalHeap="30M"
+           timeToLiveSeconds="600"
+           overflowToDisk="false"
+           diskPersistent="false"
+           memoryStoreEvictionPolicy="LRU"/>
+    <cache name="testCache"
+           eternal="false"
+           timeToIdleSeconds="600"
+           maxBytesLocalHeap="30M"
+           timeToLiveSeconds="600"
+           overflowToDisk="false"
+           diskPersistent="false"
+           memoryStoreEvictionPolicy="LRU"/>
+</ehcache>

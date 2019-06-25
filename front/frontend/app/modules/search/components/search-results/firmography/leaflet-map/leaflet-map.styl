@@ -1,0 +1,27 @@
+@require '../../../../../../assets/variables.styl'
+
+leaflet-map
+  display: block
+  position: relative
+  .leaflet-map
+    height: 350px
+    .leaflet-popup
+      a{
+        color: color-secondary
+        text-decoration: none
+        &:hover{
+          text-decoration: underline
+        }
+      }
+  .dom-tom-link{
+    color: grey
+  }
+  .loading{
+    position: absolute
+    top:0
+    bottom: 0
+    right: 0
+    left: 0
+    background-color: rgba(255, 255, 255, 0.6);
+    z-index: 999
+  }

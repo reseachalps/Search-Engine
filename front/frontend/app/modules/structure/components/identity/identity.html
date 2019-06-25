@@ -1,0 +1,404 @@
+<div>
+    <div editing="Identity.allowEditing" editing-id="Identity-ID" editing-label="Structure identity" editing-content="Identity.structure.structure" structure="Identity.structure" editing-row="full">
+        <div data-layout="row" data-layout-align="top space-around" class="id-container" data-layout-wrap>
+            <div flex="25" class="logo-container">
+                <img ng-src="{{Identity.structureLogo || 'api/structures/'+Identity.structure.structure.id+'/screenshot'}}" alt="Structure logo">
+            </div>
+            <div flex="75" data-layout="column" data-layout-align="space-between">
+                <h1>
+                    <struct-label struct="Identity.structure.structure"></struct-label>
+                </h1>
+
+                <div ng-if="Identity.structure.structure.alternativeNames.length > 0">
+                    <span ng-click="Identity.toggleAlias = !Identity.toggleAlias">{{ Identity.structure.structure.alternativeNames.length }} aliases  <i class="fa secondary" ng-class="{'fa-angle-double-down': !Identity.toggleAlias, 'fa-angle-double-up': Identity.toggleAlias}"></i></span>
+                    <div ng-if="Identity.toggleAlias">
+                        <h3 ng-repeat="name in Identity.structure.structure.alternativeNames">
+                            {{ name.label }}
+                            <i class="fa fa-info-circle">
+                                <md-tooltip md-direction="top">
+                                    Source: {{ name.sources | join:', ':'label' }}
+                                </md-tooltip>
+                            </i>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="subtitle" data-flex-offset-gt-sm="25" data-flex-gt-sm="75" data-flex="100">
+                <div data-layout-gt-sm="row" data-layout="column">
+                    <div flex-gt-sm="50" class="left-part">
+                        <div ng-if="Identity.structure.structure.type.label">
+                            <span class="secondary label">
+                                <span ng-if="Identity.isRNSR">
+                                    Unity type:
+                                </span>
+                                <span ng-if="!Identity.isRNSR">
+                                    Entity type:
+                                </span>
+                            </span>{{Identity.structure.structure.type.label}}
+                        </div>
+                        <div ng-if="Identity.structure.structure.creationYear">
+                            <span class="secondary label">
+                                Foundation year:
+                            </span>{{Identity.structure.structure.creationYear}}
+                        </div>
+                    </div>
+                    <div flex-gt-sm="50" class="right-part">
+                        <div>
+                            <span class="secondary label">
+                                ID:
+                            </span>{{Identity.structure.structure.id}}
+                        </div>
+                        <div>
+                            <ng-pluralize class="secondary label" count="Identity.idNumbers.length" when="{'0': '',
+                         '1': 'Label number :',
+                         'other': 'Label numbers :'}">
+                            </ng-pluralize><span ng-repeat="id in Identity.idNumbers">{{id}} <span ng-if="!$last">, </span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <md-divider></md-divider>
+    <div data-layout-gt-sm="row" data-layout-xs="column" data-layout-sm="column" data-layout-wrap>
+        <div data-flex-md="50" data-flex-gt-md="25" class="primary geo" data-layout-padding editing="Identity.allowEditing" editing-id="Identity-Address" editing-label="Location" editing-content="Identity.structure.structure.address" structure="Identity.structure"  editing-row="first">
+            <h3>
+                Location
+                <i class="fa fa-info-circle">
+                    <md-tooltip md-direction="top">
+                        Source: {{ Identity.structure.structure.address.sources | join:', ':'label' }}
+                    </md-tooltip>
+                </i>
+            </h3>
+            <map surroundings="Identity.surroundings" address="Identity.structure.structure.address" struct="Identity.structure.structure" ng-if="Identity.structure.structure.address.gps"></map>
+            <p>
+                {{Identity.structure.structure.address.address}}<br>
+                {{Identity.structure.structure.address.postcode}} {{Identity.structure.structure.address.city | capitalize:true}}
+            </p>
+            <p>
+                {{Identity.structure.structure.address.country | capitalize:true}}
+            </p>
+        </div>
+        <div data-flex-md="50" data-flex-gt-md="25" class="primary peoples" data-layout-padding editing="Identity.allowEditing" editing-id="Identity-People" editing-label="Leaders" editing-content="Identity.structure.structure.leaders" structure="Identity.structure" >
+            <h3 ng-if="Identity.structure.structure.leaders.length > 0">
+                Directors
+            </h3>
+            <div>
+                <div class="people" ng-repeat="people in Identity.structure.structure.leaders" ng-if="people.firstname || people.lastname">
+                    <i class="fa fa-user secondary"></i>
+                    <div>
+                        <div class="primary"><b>{{people.firstname}} {{people.lastname}}</b>
+                            <i class="fa fa-info-circle">
+                                <md-tooltip md-direction="top">
+                                    Source: {{ people.sources | join:', ':'label' }}
+                                </md-tooltip>
+                            </i>
+                        </div>
+                        <div>{{people.title}}</div>
+                        <div class="email" ng-if="people.email"><a href="mailto:{{people.email}}">{{people.email}}</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-flex-md="50" data-flex-gt-md="25" class="primary web" data-layout-padding editing="Identity.allowEditing" editing-id="Identity-Web" editing-label="Web" editing-content="Identity.structure.structure.links" structure="Identity.structure" editing-row="last">
+            <h3>Web</h3>
+            <div class="websites" ng-if="Identity.structure.structure.links.length > 0">
+                <p ng-repeat="website in Identity.structure.structure.links" class="website {{website.type}}" ng-if="website.url">
+                    <span ng-if="website.type === 'main'">
+                        <i class="secondary fa fa-{{Identity.getEmailIcon(website.type)}} fa-fw fa-lg"></i><a ng-href="{{website.url}}" target="_blank">Main website&nbsp;<i class="fa fa-fw fa-external-link"></i></a>
+                    </span>
+                    <span ng-if="website.type !== 'main'">
+                        <i class="secondary fa fa-{{Identity.getEmailIcon(website.type)}} fa-fw fa-lg"></i><a ng-href="{{website.url}}" target="_blank">{{website.label || website.url}}&nbsp;<i class="fa fa-fw fa-external-link"></i></a>
+                    </span>
+                    <i class="fa fa-info-circle">
+                        <md-tooltip md-direction="top">
+                            Source: {{ website.sources | join:", ":"label" }}
+                        </md-tooltip>
+                    </i>
+                </p>
+            </div>
+            <div ng-if="Identity.mainWebsite">
+                <div class="socials">
+                    <h5 ng-if="Identity.mainWebsite.facebook.length > 0 ||
+                                Identity.mainWebsite.linkedIn.length > 0 ||
+                                Identity.mainWebsite.twitter.length > 0 ||
+                                Identity.mainWebsite.viadeo.length > 0 ||
+                                Identity.mainWebsite.googlePlus.length > 0 ||
+                                Identity.mainWebsite.instagram.length > 0" data-layout="row" data-layout-align="space-between">
+                        Social account detected :
+                        <i class="fa fa-info-circle">
+                            <md-tooltip md-direction="top">
+                                Source : Extracted from the web site
+                            </md-tooltip>
+                        </i>
+                    </h5>
+                    <div data-layout="row" data-layout-wrap class="social-networks">
+                        <div ng-if="Identity.mainWebsite.facebook.length > 0">
+                            <a ng-href="{{Identity.mainWebsite.facebook[0].account}}" target="_blank">
+                                <img src="app/assets/img/social/facebook.svg" alt="facebook">
+                            </a>
+                        </div>
+                        <div ng-if="Identity.mainWebsite.linkedIn.length > 0">
+                            <a ng-href="{{Identity.mainWebsite.linkedIn[0].account}}" target="_blank">
+                                <img src="app/assets/img/social/linkedin.svg" alt="linkedIn">
+                            </a>
+                        </div>
+                        <div ng-if="Identity.mainWebsite.viadeo.length > 0">
+                            <a ng-href="{{Identity.mainWebsite.viadeo[0].account}}" target="_blank">
+                                <img src="app/assets/img/social/viadeo.svg" alt="viadeo">
+                            </a>
+                        </div>
+                        <div ng-if="Identity.mainWebsite.twitter.length > 0">
+                            <a ng-href="http://twitter.com/{{Identity.mainWebsite.twitter[0].account}}" target="_blank">
+                                <img src="app/assets/img/social/twitter.svg" alt="twitter">
+                            </a>
+                        </div>
+                        <div ng-if="Identity.mainWebsite.googlePlus.length > 0">
+                            <a ng-href="{{Identity.mainWebsite.googlePlus[0].account}}" target="_blank">
+                                <img src="app/assets/img/social/googleplus.svg" alt="googlePlus">
+                            </a>
+                        </div>
+                        <div ng-if="Identity.mainWebsite.instagram.length > 0">
+                            <a ng-href="{{Identity.mainWebsite.instagram[0].account}}" target="_blank">
+                                <img src="app/assets/img/social/instagram.svg" alt="instagram">
+                            </a>
+                        </div>
+                        <div ng-if="Identity.mainWebsite.emails.length > 0">
+                            <h5><i class="fa fa-fw fa-pencil-square-o"></i>Emails:</h5>
+                            <span ng-repeat="email in Identity.mainWebsite.emails">
+                                <small><a ng-href="mailto:{{email}}" target="_blank">{{ email }}</a></small>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="technical"
+                        ng-if="Identity.mainWebsite.monitoring.length > 0 ||
+                                    Identity.mainWebsite.rss.length > 0 ||
+                                    Identity.mainWebsite.platforms.length > 0 ||
+                                    Identity.mainWebsite.ecommerce === true ||
+                                    Identity.mainWebsite.contactForms.length > 0">
+                    <md-divider></md-divider>
+                    <p ng-click="Identity.displayMoreWeb = !Identity.displayMoreWeb" data-layout="row" data-layout-align="end">
+                        <small ng-show="!Identity.displayMoreWeb">
+                            Other informations extracted from the web site
+                        </small>
+                        <small ng-show="Identity.displayMoreWeb">
+                            Hide
+                        </small>
+                    </p>
+                    <div ng-show="Identity.displayMoreWeb">
+                        <small>Last crawl: {{Identity.mainWebsite.lastCompletion | date}}</small>
+                        <div ng-if="Identity.mainWebsite.ecommerce === true">
+                            <h5>Cybercommerce web site:&nbsp;<i class="fa fa-check fa-fw"></i></h5>
+                        </div>
+                        <div ng-if="Identity.mainWebsite.monitoring.length > 0">
+                            <h5>Monitoring solutions:</h5>
+                            <div ng-repeat="monit in Identity.mainWebsite.monitoring">
+                                <small>{{Identity.getMonitoringLabel(monit)}}</small>
+                            </div>
+                        </div>
+                        <div ng-if="Identity.mainWebsite.platforms.length > 0">
+                            <h5>CMS plateforms:</h5>
+                            <div ng-repeat="cms in Identity.mainWebsite.platforms">
+                                <small>{{cms | capitalize}}</small>
+                            </div>
+                        </div>
+                        <div ng-if="Identity.mainWebsite.rss.length > 0">
+                            <h5><i class="fa fa-fw fa-rss"></i>RSS Feed:</h5>
+                            <span ng-repeat="rss in Identity.mainWebsite.rss | limitTo:5">
+                                <small><a ng-href="{{rss.url}}" target="_blank">[{{$index + 1}}]</a></small>
+                            </span>
+                        </div>
+                        <div ng-if="Identity.mainWebsite.contactForms.length > 0">
+                            <h5><i class="fa fa-fw fa-pencil-square-o"></i>Contact form:</h5>
+                            <span ng-repeat="form in Identity.mainWebsite.contactForms">
+                                <small><a ng-href="{{form}}" target="_blank">[{{$index + 1}}]</a></small>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-flex-md="50" data-flex-gt-md="25" ng-if="Identity.tagCloudWords.length > 0" class="primary tag-cloud" data-layout="column" data-layout-padding data-layout-align="start stretch">
+            <h3 class="align-center">
+                Keywords
+                <i class="fa fa-info-circle">
+                    <md-tooltip md-direction="top">
+                        Source: Extracted from the web site and from projects and scientific production summaries
+                    </md-tooltip>
+                </i>
+            </h3>
+            <tag-cloud words="Identity.tagCloudWords" show-title="false" data-layout="row" data-layout-align="center"></tag-cloud>
+            <div data-layout="row" data-layout-align="center" ng-if="Identity.keywordsLoading">
+                <md-progress-circular md-mode="indeterminate" md-diameter="64" class="md-accent"></md-progress-circular>
+            </div>
+        </div>
+        <div ng-if="Identity.structure.structure.badges.length > 0" class="tags" editing="Identity.allowEditing" editing-id="Identity-Badges" editing-label="Synthesis" editing-content="Identity.structure.structure.badges" structure="Identity.structure" editing-row="full">
+            <div data-layout="row" data-layout-wrap>
+                <div ng-repeat="badge in Identity.structure.structure.badges">
+                    <img ng-src="/static/tags/{{badge.code}}.png" alt="{{badge.label}}">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-layout="column" class="small-text identity-sections" ng-if="Identity.structure.structure.activities.length > 0 || Identity.structure.structure.financePrivate.date">
+        <div>
+            <md-divider></md-divider>
+            <div data-layout="row" data-layout-wrap>
+                <div flex-gt-sm="50" ng-if="Identity.structure.structure.activities.length > 0 || Identity.allowEditing" flex="100" editing="Identity.allowEditing" editing-id="Identity-NAF" editing-label="Activity Fields" editing-content="Identity.structure.structure.activities" structure="Identity.structure"  editing-row="first" >
+                    <h2>Fields</h2>
+                    <p ng-repeat="naf in Identity.structure.structure.activities">
+                        <b>{{naf.code}} : </b>{{naf.label}}
+                    </p>
+                </div>
+                <div ng-if="Identity.structure.structure.financePrivate.date" editing="Identity.allowEditing" editing-id="Identity-FinancePrivate" editing-label="Staff and financial figures" editing-content="Identity.structure.structure.financePrivate" structure="Identity.structure"  editing-row="last" flex="100" flex-gt-sm="50">
+                    <financial-private financial="Identity.structure.structure.financePrivate || Identity.allowEditing"></financial-private>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-layout="column" class="small-text identity-sections">
+        <md-divider ng-if="Identity.structure.structure.finance"></md-divider>
+        <financial  ng-if="Identity.structure.structure.finance" structure="Identity.structure" financial="Identity.structure.structure.finance" allow-editing="Identity.allowEditing"></financial>
+        <md-divider ng-if="Identity.structure.structure.staff.length > 0"></md-divider>
+        <div class="peoples" ng-if="Identity.structure.structure.staff.length > 0" data-layout-padding >
+            <h2 ng-click="Identity.toggleStaff = !Identity.toggleStaff">
+                Staff: {{ Identity.structure.structure.staff.length }} identified persons <i class="fa secondary" ng-class="{'fa-angle-double-down': !Identity.toggleStaff, 'fa-angle-double-up': Identity.toggleStaff}"></i>
+            </h2>
+            <md-grid-list ng-if="Identity.toggleStaff" md-cols="5" md-cols-sm="2" md-cols-md="3" md-gutter="1em" md-row-height="3em">
+                <md-grid-tile class="people" ng-repeat="people in Identity.structure.structure.staff | orderBy:['lastname', 'firstname']" ng-if="people.firstname || people.lastname">
+                    <i class="fa fa-user secondary"></i>
+                    &nbsp;
+                    <div>
+                        <div class="primary"><b>{{people.firstname}} {{people.lastname}}</b>
+                            <i class="fa fa-info-circle">
+                                <md-tooltip md-direction="top">
+                                    Source: {{ people.sources | join:', ':'label' }}
+                                </md-tooltip>
+                            </i>
+                        </div>
+                        <div>{{people.title}}</div>
+                        <div class="email" ng-if="people.email"><a href="mailto:{{people.email}}">{{people.email}}</a></div>
+                    </div>
+                </md-grid-tile>
+            </md-grid-list>
+        </div>
+        <div class="themes" ng-if="Identity.groupedActivities" editing="Identity.allowEditing" editing-id="Identity-Themes" editing-label="Thematics" editing-content="Identity.groupedActivities" structure="Identity.structure"  editing-row="full" >
+            <h2>
+                Thematics
+            </h2>
+            <div ng-repeat="(key, value) in Identity.groupedActivities" ng-if="key !== 'Autres'">
+                <p><b>{{key}} :</b></p>
+                <ul ng-repeat="activity in value | localeCompareString:'label'">
+                    <li>{{activity.label}}</li>
+                </ul>
+            </div>
+            <div ng-if="Identity.structure.structure.finance.domainRatios.length > 0">
+                <p><b>Staff discipline :</b></p>
+                <ul>
+                    <li ng-repeat="domain in Identity.structure.structure.finance.domainRatios">{{domain.label}}</li>
+                </ul>
+            </div>
+            <p ng-if="Identity.groupedActivities['Autres'].length > 0">
+                <b>Keywords&nbsp;:</b>
+                <span ng-repeat="other in Identity.groupedActivities['Autres']" >
+                    <a ui-sref="search({query:other.label})">
+                      {{other.label}}
+                    </a>
+                    <span ng-if="!$last">; </span>
+                </span>
+            </p>
+        </div>
+        <md-divider ng-if="Identity.structure.structure.history.length > 0"></md-divider>
+        <div class="history" ng-if="Identity.structure.structure.history.length > 0" editing="Identity.allowEditing" editing-id="Identity-History" editing-label="Historic" editing-content="Identity.structure.structure.history" structure="Identity.structure"  editing-row="full">
+            <h2>
+                Structure history
+            </h2>
+            <div>
+                <div ng-repeat="history in Identity.structure.structure.history | orderBy:'-date'" class="history-entry">
+                    <b>{{history.type}}</b> in {{history.date}} <span ng-if="history.structures.length > 0">of structures :</span>
+                    <ul ng-if="history.structures.length > 0">
+                        <li ng-repeat="struct in history.structures">
+                            {{struct}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <md-divider ng-if="Identity.structure.parents.length > 0 || Identity.structure.children.length > 0"></md-divider>
+        <div ng-if="Identity.structure.parents.length > 0 || Identity.structure.children.length > 0" class="hierarchy" editing="Identity.allowEditing" editing-id="Identity-Hierarchy" editing-label="Hierarchy" editing-content="Identity.structure.structure.children" structure="Identity.structure"  editing-row="full" >
+            <h2>
+                Hierarchy
+            </h2>
+            <div data-layout-gt-sm="row" data-layout="column">
+                <div ng-if="Identity.structure.parents.length" flex>
+                    <h3>
+                        <ng-pluralize count="Identity.structure.parents.length" when="{'0': '',
+                         '1': 'Parent structure',
+                         'other': 'Parent structures'}">
+                        </ng-pluralize>
+                    </h3>
+                    <div data-layout-gt-sm="row" data-layout="column" ng-if="Identity.structure.parents.length > 0">
+                        <div flex-gt-sm="50">
+                            <relative data="parent" ng-repeat="parent in Identity.leftParents | localeCompareString:'label'"></relative>
+                        </div>
+                        <div flex-gt-sm="50">
+                            <relative data="parent" ng-repeat="parent in Identity.rightParents | localeCompareString:'label'"></relative>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="Identity.structure.children.length > 0" class="children" flex>
+                    <h3>
+                        <ng-pluralize count="Identity.structure.children.length" when="{'0': '',
+                             '1': '1 child structure',
+                             'other': '{} children structures'}">
+                                </ng-pluralize>
+                    </h3>
+                    <md-virtual-repeat-container ng-if="Identity.structure.children.length > 0" class="children-container">
+                        <div md-virtual-repeat="children in Identity.children">
+                            <relative data="children[0]"></relative>
+                            <relative data="children[1]" ng-if="children[1]"></relative>
+                        </div>
+                    </md-virtual-repeat-container>
+                </div>
+            </div>
+            <div ng-if="!Identity.structure.parents.length && !Identity.structure.children.length">
+                <p>
+                    This organization has no children organizations.
+                </p>
+            </div>
+        </div>
+        <md-divider ng-if="Identity.structure.structure.institutions.length > 0"></md-divider>
+        <div class="tutelles" ng-if="Identity.structure.structure.institutions.length > 0" editing="Identity.allowEditing" editing-id="Identity-Tutelles" editing-label="Tutelles" editing-content="Identity.structure.structure.institutions" structure="Identity.structure"  editing-row="full" ng-if="Identity.isRNSR">
+            <h2>
+                Institutions
+            </h2>
+            <div data-layout="row">
+                <div flex="50">
+                    <p ng-repeat="tutelle in Identity.structure.structure.institutions | localeCompareString:'label' | limitTo:(Identity.structure.structure.institutions.length+1)/2">
+                        <a ng-href="/#/{{tutelle.url}}"><struct-label struct="parent"></struct-label></a>
+                    </p>
+                </div>
+            </div>
+            <div ng-if="Identity.structure.structure.institutions.length === 0">
+                <p>
+                    No parent for this organization.
+                </p>
+            </div>
+        </div>
+        <md-divider ng-if="Identity.structure.structure.relations.length > 0"></md-divider>
+        <div class="relations" ng-if="Identity.structure.structure.relations.length > 0" editing="Identity.allowEditing" editing-id="Identity-Relations" editing-label="Extern relationship" editing-content="Identity.structure.structure.relations" structure="Identity.structure"  editing-row="full" >
+            <h2>
+                External relationship
+            </h2>
+            <div>
+                <ul ng-repeat="relation in Identity.structure.structure.relations">
+                    <li><a ng-href="{{relation.url}}" target="_blank"><span>{{relation.typeLabel}} :&nbsp;</span>{{relation.label}}&nbsp;<i class="fa fa-fw fa-external-link"></i></a></li>
+                </ul>
+            </div>
+            <p ng-if="!Identity.structure.structure.relations || Identity.structure.structure.relations.length === 0">
+                No relationship with other organizations.
+            </p>
+        </div>
+    </div>
+</div>

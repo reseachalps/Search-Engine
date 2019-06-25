@@ -1,0 +1,25 @@
+<div class="themes-container" data-layout="column">
+    <md-radio-group ng-model="Themes.selected.theme"  ng-change="Themes.selectedItem = undefined; Themes.searchText = ''" data-layout="row" data-layout-align="space-around">
+        <md-radio-button value="domaine">
+            Domain
+        </md-radio-button>
+        <md-radio-button value="erc">
+            ERC field
+        </md-radio-button>
+    </md-radio-group>
+    <md-autocomplete
+            ng-disabled="!Themes.selected"
+            md-input-name="autocompleteField"
+            md-no-cache="true"
+            md-selected-item="Themes.selectedItem"
+            md-menu-class="themes"
+            md-search-text="Themes.searchText"
+            md-items="item in Themes.querySearch(Themes.searchText)"
+            md-item-text="item.label"
+            md-floating-label="Search">
+      <md-item-template>
+        <span md-highlight-text="Themes.searchText">{{item.label}}</span>
+      </md-item-template>
+    </md-autocomplete>
+    <md-button class="md-raised md-accent" ng-click="Themes.applyFilter({id:Themes.selected.theme, filters:[{value:Themes.selectedItem.key}]})" ng-disabled="!Themes.selectedItem">Apply</md-button>
+</div>

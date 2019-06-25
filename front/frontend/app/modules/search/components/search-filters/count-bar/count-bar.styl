@@ -1,0 +1,19 @@
+@require '../../../../../assets/variables.styl';
+
+count-bar {
+  position: relative
+  display: block
+  .count-bar {
+    display: inline-block
+    height: 22px
+    background-color: color-secondary
+  }
+  .count-value{
+    position: absolute
+    left:10px
+    top: 4px
+    &.too-big {
+      left: 30px
+    }
+  }
+}

@@ -1,0 +1,16 @@
+**/.settings
+**/.project
+**/.classpath
+**/target/
+**/build/
+*.idea
+*.iml
+*.ipr
+*.iws
+*.db
+.gradle
+**/logs
+**/*.log
+.DS_Store
+app/application.properties
+workflow/application.properties

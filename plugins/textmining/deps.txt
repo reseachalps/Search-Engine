@@ -1,0 +1,4 @@
+entities_extractor==0.6
+nltk==3.0.4
+phonenumbers==7.0.1
+fastmatch==0.5

@@ -1,0 +1,284 @@
+{
+  "properties": {
+    "address": {
+      "properties": {
+        "departement": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "city": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "postcode": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "gps": {
+          "type": "geo_point"
+        },
+        "urbanUnit": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "nuts1": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "nuts2": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "nuts3": {
+          "index": "not_analyzed",
+          "type": "string"
+        }
+      }
+    },
+    "projects": {
+      "properties": {
+        "call": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "acronym": {
+          "index": "not_analyzed",
+          "type": "string",
+          "term_vector": "with_positions_offsets"
+        },
+        "callLabel": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "description": {
+          "analyzer": "text",
+          "type": "string",
+          "term_vector": "with_positions_offsets"
+        },
+        "id": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "label": {
+          "index": "not_analyzed",
+          "type": "string",
+          "term_vector": "with_positions_offsets"
+        }
+      }
+    },
+    "acronym": {
+      "analyzer": "structure_name",
+      "type": "string",
+      "term_vector": "with_positions_offsets"
+    },
+    "companyType": {
+      "properties": {
+        "code": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "label": {
+          "index": "not_analyzed",
+          "type": "string"
+        }
+      }
+    },
+    "level": {
+      "type": "integer"
+    },
+    "nature": {
+      "index": "not_analyzed",
+      "type": "string"
+    },
+    "kind": {
+      "index": "not_analyzed",
+      "type": "string"
+    },
+    "domaine": {
+      "properties": {
+        "code": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "label": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "type": {
+          "index": "not_analyzed",
+          "type": "string"
+        }
+      }
+    },
+    "websiteContents": {
+      "properties": {
+        "webPages": {
+          "properties": {
+            "title": {
+              "analyzer": "text",
+              "type": "string"
+            },
+            "content": {
+              "analyzer": "text",
+              "type": "string",
+              "term_vector": "with_positions_offsets"
+            }
+          }
+        },
+        "baseURL": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "crawlMode": {
+          "index": "not_analyzed",
+          "type": "string"
+        }
+      }
+    },
+    "raw": {
+      "analyzer": "word_cloud",
+      "type": "string"
+    },
+    "leaders": {
+      "properties": {
+        "completeName": {
+          "index": "not_analyzed",
+          "type": "string",
+          "term_vector": "with_positions_offsets"
+        }
+      }
+    },
+    "label": {
+      "analyzer": "structure_name",
+      "type": "string",
+      "term_vector": "with_positions_offsets"
+    },
+    "alias": {
+      "analyzer": "structure_name",
+      "type": "string",
+      "term_vector": "with_positions_offsets"
+    },
+    "type": {
+      "properties": {
+        "code": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "label": {
+          "index": "not_analyzed",
+          "type": "string"
+        }
+      }
+    },
+    "badges": {
+      "index": "not_analyzed",
+      "type": "string"
+    },
+    "sources": {
+      "index": "not_analyzed",
+      "type": "string"
+    },
+    "institutions": {
+      "properties": {
+        "code": {
+          "index": "not_analyzed",
+          "type": "string",
+          "term_vector": "with_positions_offsets"
+        },
+        "acronym": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "id": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "label": {
+          "index": "not_analyzed",
+          "type": "string"
+        }
+      }
+    },
+    "activityLabels": {
+      "type": "string",
+      "term_vector": "with_positions_offsets"
+    },
+    "naf": {
+      "properties": {
+        "code": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "label": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "type": {
+          "index": "not_analyzed",
+          "type": "string"
+        }
+      }
+    },
+    "creationYear": {
+      "type": "integer"
+    },
+    "erc": {
+      "properties": {
+        "code": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "label": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "type": {
+          "index": "not_analyzed",
+          "type": "string"
+        }
+      }
+    },
+    "logo": {
+      "index": "not_analyzed",
+      "type": "string"
+    },
+    "id": {
+      "index": "not_analyzed",
+      "type": "string",
+      "term_vector": "with_positions_offsets"
+    },
+    "publications": {
+      "properties": {
+        "summary": {
+          "analyzer": "text",
+          "type": "string",
+          "term_vector": "with_positions_offsets"
+        },
+        "alternativeSummary": {
+          "analyzer": "text",
+          "type": "string",
+          "term_vector": "with_positions_offsets"
+        },
+        "subtitle": {
+          "analyzer": "text",
+          "type": "string",
+          "term_vector": "with_positions_offsets"
+        },
+        "id": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "title": {
+          "analyzer": "text",
+          "type": "string",
+          "term_vector": "with_positions_offsets"
+        },
+        "authors": {
+          "index": "not_analyzed",
+          "type": "string",
+          "term_vector": "with_positions_offsets"
+        }
+      }
+    }
+  }
+}

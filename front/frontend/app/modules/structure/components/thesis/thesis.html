@@ -1,0 +1,94 @@
+<div class="editing-wrapper" editing="Thesis.allowEditing"
+        editing-id="Thesis" editing-label="Thesis"
+        editing-content="Thesis.thesisList" editing-row="full" structure="Thesis.structure">
+    <h2 class="title-thesis">
+        Thesis
+    </h2>
+    <div data-layout="row" data-layout-align="start top" ng-if="Thesis.thesisList.length > 0">
+        <div data-layout="column" class="left-part" flex-sm="100" flex-xs="100">
+            <md-autocomplete
+                    ng-if="Thesis.thesis.length > 1"
+                    md-search-text="Thesis.search"
+                    md-items="item in []"
+                    md-item-text="item.display"
+                    md-min-length="0"
+                    placeholder='Search in {{Thesis.thesis.length | number}} thesis'>
+              </md-autocomplete>
+            <div data-layout="row" data-layout-align="start top" ng-if="Thesis.thesisList.length > 0">
+                <div flex-sm="100" flex-xs="100">
+                    <div class="count" data-layout="row" data-layout-align="end center">
+                        {{Thesis.filtredThesis | filterCountNoHeaders | number}} thesis
+                        <span ng-if="(Thesis.filtredThesis | filterCountNoHeaders) <Thesis.thesis.length">&nbsp;out of {{Thesis.thesis.length | number}}</span>
+                    </div>
+                    <md-virtual-repeat-container>
+                        <div md-virtual-repeat="thesis in Thesis.filtredThesis=(Thesis.thesisList | filter:Thesis.search)" layout="column"
+                             data-layout-align="center stretch">
+                            <div ng-if="thesis.header" class="header">
+                                {{thesis.year}}
+                            </div>
+                            <div ng-if="!thesis.header" class="thesis"
+                                 ng-click="Thesis.selectThesis(thesis)"
+                                 ng-class="{selected: Thesis.selectedThesis.id === thesis.id}">
+                                <div data-layout="row" data-layout-align="space-between">
+                                    <b>{{ thesis.title }}</b>
+                                </div>
+                                <div data-layout="row" data-layout-align="space-between" class="publi-meta">
+                                    <small><i>{{ (thesis.publicationDate || thesis.lastSourceDate) | date }}</i></small>
+                                    <small><i>{{ thesis.authors[0].firstName}} {{ thesis.authors[0].lastName}}</i></small>
+                                </div>
+                            </div>
+                        </div>
+                    </md-virtual-repeat-container>
+                </div>
+            </div>
+        </div>
+        <div flex class="selected-thesis">
+            <div data-layout-align="space-between center" data-layout="row">
+                <h3>{{Thesis.selectedThesis.title}}</h3>
+            </div>
+            <div data-layout="row" data-layout-align="space-between">
+                <a ui-sref="search({query: '&quot' + Thesis.selectedThesis.authors[0].firstName + ' ' + Thesis.selectedThesis.authors[0].lastName + '&quot'})" class="author">
+                    <small>
+                        <b>
+                            {{Thesis.selectedThesis.authors[0].firstName}} {{Thesis.selectedThesis.authors[0].lastName}}<br>
+                        </b>
+                    </small>
+                </a>
+                <small><i class="secondary">Submission date : {{(Thesis.selectedThesis.publicationDate ||
+                    Thesis.selectedThesis.lastSourceDate) | date }}</i></small>
+            </div>
+            <div ng-if="Thesis.selectedThesis.summary.length > 0">
+                <p ng-show="!Thesis.displayFullDescription && Thesis.selectedThesis.summary.length > 500"
+                   class="description"><b class="primary">Summary : </b>{{Thesis.selectedThesis.summary.substring(0,500)}}...
+                </p>
+                <p ng-show="Thesis.displayFullDescription || Thesis.selectedThesis.summary.length <= 500"
+                   class="description"><b class="primary">Summary : </b>{{Thesis.selectedThesis.summary}}</p>
+                <p data-layout="row" data-layout-align="end" ng-click="Thesis.displayFullDescription = true"
+                   ng-show="!Thesis.displayFullDescription && Thesis.selectedThesis.summary.length > 500" class="subtitle">
+                    See more
+                </p>
+            </div>
+            <p ng-if="Thesis.selectedThesis.link">
+                <small>
+                    <a ng-href="{{Thesis.selectedThesis.link}}" target="_blank">{{Thesis.selectedThesis.link}} <i class="fa fa-fw fa-external-link"></i></a>
+                </small>
+            </p>
+        </div>
+    </div>
+    <div ng-if="Thesis.webThesis.length > 0">
+        <h4>
+            <span ng-if="Thesis.thesisList.length === 0">
+                Thesis detected
+            </span>
+            <span ng-if="Thesis.thesisList.length > 0">
+                Other thesis detected
+            </span>
+            on the web site&nbsp;:
+        </h4>
+        <p ng-repeat="webThesis in Thesis.webThesis | orderBy:'title'">
+            {{webThesis.title}}
+            <br>
+            <b>{{webThesis.authors[0].firstName}} {{webThesis.authors[0].lastName}}</b>
+        </p>
+    </div>
+</div>

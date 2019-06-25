@@ -1,0 +1,15 @@
+<div class="tooltip" ng-show="tooltip.show" ng-style="{left:tooltip.left,top:tooltip.top,bottom:tooltip.bottom}"
+     ng-click="tooltipClicked($event)">
+    <div ng-bind-html="tooltip.text"></div>
+    <div>
+        <button class="md-raised md-button md-ink-ripple" type="button" ng-show="tooltip.enable.schedule"
+                ng-click="tooltipClicked($event,'schedule')">Schedule
+        </button>
+        <button class="md-raised md-button md-ink-ripple" type="button" ng-show="tooltip.enable.force"
+                ng-click="tooltipClicked($event,'force')">Force Start
+        </button>
+        <button class="md-raised md-button md-ink-ripple" type="button" ng-show="tooltip.enable.unschedule"
+                ng-click="tooltipClicked($event,'unschedule')">Unschedule
+        </button>
+    </div>
+</div>

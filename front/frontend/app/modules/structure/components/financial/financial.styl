@@ -1,0 +1,21 @@
+financial{
+  i.fa{
+    margin-right: 10px
+  }
+  ol {
+    padding: 0 17px
+    li {
+      font-size:90%;
+    }
+    &.custom-counter li{
+      display: block
+      &:before{
+        content: counter(item) ". ";
+        counter-increment: item;
+      }
+    }
+  }
+  h4{
+    margin-bottom: 10px
+  }
+}

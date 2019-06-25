@@ -1,0 +1,4 @@
+webmining==1.75
+cstore_api==1.3
+textmining==0.65
+companies_plugin==1.21

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr" data-ng-app="app">
+    <head>
+	    <link rel="shortcut icon" href="app/assets/img/favicon.ico" type="image/x-icon">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <meta property="og:site_name" content="Re-search Alps : the engine of research and innovation" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:description" content="Re-search Alps is a tool to help the categorisation of the research and innovation activities of the french and italians research structures (public and private)" />
+        <meta property="og:title" content="Discover Re-search Alps, the engine of research and innovation (beta)" />
+        <meta property="og:url" content="http://researchalps.data-publica.com" />
+        <meta property="og:image" content="http://researchalps.eu/wp-content/themes/wp-foundation/images/ReSearchAlpsLogo.png" />
+        <meta property="og:image:width" content="500" />
+        <meta property="og:image:height" content="302" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@sup_recherche">
+        <meta name="twitter:title" content="Discover Re-search Alps, the engine of research and innovation (beta)">
+        <meta name="twitter:url" content="https://scanr.enseignementsup-recherche.gouv.fr">
+        <meta name="twitter:description" content="Re-search Alps is a tool to help the categorisation of the research and innovation activities of the french and italians research structures (public and private)" />
+        <meta name="twitter:image" content="http://researchalps.eu/wp-content/themes/wp-foundation/images/ReSearchAlpsLogo.png">
+        <link rel="stylesheet" type="text/css" href="/app.css">
+        <title data-ng-bind="pageTitle || 'Re-search Alps'"></title>
+        <base href="/">
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+    </head>
+    <body data-ng-class="{home:$state.is('home')}">
+        <div class="cookie-disclaimer" data-ng-class="{'app-loaded': appLoaded}" data-ng-if="showCookieDisclaimer" data-layout="row" data-layout-align="space-between center" data-layout-xs="column">
+            <span class="cookie-notice" data-flex>By continuing your navigation on this web site, you accept the use of cookies to compute visit statistics</span>
+            <div data-layout="row">
+                <md-button class="cookies-ok md-raised" data-ng-click="acceptCookies()">OK</md-button>
+            </div>
+        </div>
+        <div data-ui-view data-ng-strict-di data-ng-class="{'bg-primary': !changingState || appLoaded, 'homepage':$state.is('home')}"></div>
+        <footer data-ng-if="!changingState && !$state.is('home')"></footer>
+        <div data-ng-if="changingState" data-layout="row" data-layout-align="center center" class="main-loading">
+            <md-progress-circular data-md-mode="indeterminate" data-md-diameter="128" class="md-accent"></md-progress-circular>
+        </div>
+        <script src="/main.js"></script> <!--ALL THE CODE-->
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-101606917-2"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-101606917-2');
+          window.gtag = gtag;
+        </script>
+
+    </body>
+</html>

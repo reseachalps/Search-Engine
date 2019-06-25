@@ -1,0 +1,9 @@
+<md-radio-group ng-model="Radio.selected">
+    <md-radio-button ng-repeat="value in Radio.values" value="{{value.value}}">
+        <div data-layout="row" data-layout-align="start center">
+            <span ng-class="{'radio-label':value.count >= 0}" flex="none">{{value.label | capitalize:true}}</span>
+            <count-bar max-value="Radio.maxValue" count="value.count" flex></count-bar>
+        </div>
+    </md-radio-button>
+</md-radio-group>
+<md-button class="md-raised md-accent" ng-click="Radio.applyFilter({id: Radio.filterId, value: Radio.selected})" ng-disabled="!Radio.selected">Apply</md-button>

@@ -1,0 +1,4 @@
+anyjson==0.3.3
+amqp==1.4.6
+kombu==3.0.21
+rabbitpy==0.27.1

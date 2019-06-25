@@ -1,0 +1,8 @@
+unidecode
+requests
+pyquery==1.2.9
+entities_extractor==0.6
+textmining==0.65
+webmining==1.75
+cstore_api==1.3
+companies_plugin==1.21

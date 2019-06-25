@@ -1,0 +1,21 @@
+1,american express
+1,amex
+2,bancontact
+3,bankoverschrijving
+3,banktransfer
+4,carte bleue
+5,carte bleue virtuelle
+4,cb
+6,cofinoga
+4,creditcard
+5,e carte bleue
+5,e-carte bleue
+5,e-cb
+7,electron
+8,eurocard
+9,maestro
+10,mastercard
+10,master card
+11,paypal
+3,virement bancaire
+12,visa

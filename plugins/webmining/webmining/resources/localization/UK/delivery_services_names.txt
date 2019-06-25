@@ -1,0 +1,13 @@
+2,PostNL
+3,UPS
+4,TNT
+5,DHL
+6,FedEx
+7,Bpack
+8,DPD
+9,Day by Day
+10,GLS
+11,Kariboo
+12,trans-o-flex
+13,Ciblex
+14,Taxipost

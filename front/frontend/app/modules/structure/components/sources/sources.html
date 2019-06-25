@@ -1,0 +1,27 @@
+<div class="editing-wrapper">
+    <div layout="column">
+        <div flex>
+            <h2 ng-if="Sources.sources">Sources</h2>
+            <div layout="column" layout-align="start start" class="sources-container" ng-if="Sources.sources">
+                <div class="source-wrapper" ng-repeat="source in Sources.sources" layout="row"
+                     layout-align="space-around start">
+                    <div flex="50">
+                        <a ng-href="{{ source.url }}">
+                            <div>{{ source.label }}</div>
+                        </a>
+                    </div>
+                    <div flex="50"><b>Revision date :</b>&nbsp;{{ source.revisionDate | date }}</div>
+                </div>
+            </div>
+        </div>
+        <div flex>
+            <h2 ng-if="Sources.identifiers">Identifiers</h2>
+            <div layout="column" layout-align="start start" class="sources-container" ng-if="Sources.identifiers">
+                <div class="source-wrapper" ng-repeat="ident in Sources.identifiers | orderBy:['provenance','type','id']" layout="row" ng-if="ident.visible">
+                    <div flex="50"><b><a ng-href="{{ ident.link }}" ng-if="ident.link">{{ ident.provenance }}<span ng-show="ident.type"> [{{ident.type}}]</span></a><span ng-if="!ident.link">{{ ident.provenance }}<span ng-show="ident.type"> [{{ident.type}}]</span></span></b></div>
+                    <em flex="50">{{ ident.id }}</em>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

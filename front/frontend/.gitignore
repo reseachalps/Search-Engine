@@ -1,0 +1,9 @@
+node_modules/
+typings/
+build/
+coverage/
+publish/
+dist/
+*.idea
+npm-debug.log
+bundle.js*
